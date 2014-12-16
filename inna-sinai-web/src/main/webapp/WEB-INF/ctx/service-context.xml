@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+       
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+      <property name="basename" value="classpath:/i18n/messages" />
+      <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+ 
+    <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+       <property name="paramName" value="lang" />
+    </bean>
+ 
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+       <property name="defaultLocale" value="en"/>
+    </bean>
+ 
+    <bean id="handlerMapping" class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+         <property name="interceptors">
+         <ref bean="localeChangeInterceptor" />
+         </property>
+      </bean>
+
+      <bean id="catalogoTemplateService" class="com.inna.sinai.common.service.core.impl.CatalogTemplateServiceImpl">
+         <property name="dao" ref="catalogTemplateDAO"/>
+         <property name="templates">
+           <list>
+             <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
+               <property name="name" value="glBusinessUnit"/>
+               <property name="target" value="CAT_GL_BUSINESS_UNIT"/>
+               <property name="text" value="Unidades de Negocio"/>
+             </bean>
+             <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
+               <property name="name" value="opProduct"/>
+               <property name="target" value="CAT_OP_PRODUCT"/>
+               <property name="text" value="Productos"/>
+             </bean>
+             <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
+               <property name="name" value="opSkyAnswerType"/>
+               <property name="target" value="CAT_OP_SKY_ANSWER_TYPE"/>
+               <property name="text" value="Causas de Reagendamiento"/>
+             </bean>
+             <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
+               <property name="name" value="stItemType"/>
+               <property name="target" value="CAT_ST_ITEM_TYPE"/>
+               <property name="text" value="Tipo de productos en Almacen"/>
+             </bean>
+             <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
+               <property name="name" value="opSoSolutions"/>
+               <property name="target" value="CAT_OP_SO_SOLUTIONS"/>
+               <property name="text" value="Soluciones a ordenes de Servicio"/>
+             </bean>
+           </list>
+         </property>
+      </bean>
+      
+      <bean id="catService" class="com.inna.sinai.web.service.util.impl.CatalogServiceImpl">
+         <property name="businessUnitDAO" ref="businessUnitDAO" />
+         <property name="employeeRolDAO" ref="employeeRolDAO" />
+         <property name="profileDAO" ref="profileDAO" />
+      </bean>
+      
+      <bean id="encryptionService" class="com.inna.sinai.common.service.core.impl.EncryptionServiceImpl">
+         <property name="algorithm" value="SHA-1" />
+       </bean>
+       
+       <bean id="loginService" class="com.inna.sinai.web.service.security.impl.LoginServiceImpl">
+           <property name="dao" ref="loginDAO" />
+           <property name="encrypter" ref="encryptionService" />
+       </bean>
+       
+       <bean id="userService" class="com.inna.sinai.web.service.admin.impl.UserAdminServiceImpl">
+           <property name="dao" ref="userDAO" />
+           <property name="encrypter" ref="encryptionService" />
+       </bean>
+  
+</beans>
