@@ -53,6 +53,19 @@
                <property name="target" value="CAT_OP_SO_SOLUTIONS"/>
                <property name="text" value="Soluciones a ordenes de Servicio"/>
              </bean>
+             
+             
+             <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
+               <property name="name" value="secProfiles"/>
+               <property name="target" value="CAT_SEC_PROFILES"/>
+               <property name="text" value="Perfiles"/>
+             </bean>
+             
+             <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
+               <property name="name" value="secEmployeeRol"/>
+               <property name="target" value="CAT_SEC_EMPLOYEE_ROL"/>
+               <property name="text" value="Puestos"/>
+             </bean>
            </list>
          </property>
       </bean>

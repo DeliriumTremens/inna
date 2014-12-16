@@ -23,7 +23,7 @@ public class UserAdministrationController  extends CommonController {
 
   @RequestMapping("/setup.do")
   public String  setup(ModelMap model){
-    model.addAttribute("profiles", catService.getProfileDAO().getAll()); 
+	model.addAttribute("profiles", ctService.getAll("secProfiles")); 
     model.addAttribute("toSearch", new MasterUser());
     return "admin/user/searchUser";
   }
@@ -48,9 +48,9 @@ public class UserAdministrationController  extends CommonController {
   
   @RequestMapping("/setupCreate.do")
   public String  setupCreate(ModelMap model) {
-	model.addAttribute("profiles", catService.getProfileDAO().getAll());
-	model.addAttribute("businessUnits", catService.getBusinessUnitDAO().getAll()); 
-	model.addAttribute("employeeRols", catService.getEmployeeRolDAO().getAll()); 
+	model.addAttribute("profiles", ctService.getAll("secProfiles")); 
+	model.addAttribute("businessUnits", ctService.getAll("glBusinessUnit")); 
+	model.addAttribute("employeeRols", ctService.getAll("secEmployeeRol")); 
 	model.addAttribute("newMasterUser", new MasterUser());
 	return "admin/user/_createUser";
   }
@@ -72,11 +72,11 @@ public class UserAdministrationController  extends CommonController {
   
   @RequestMapping("/setupUpdate.do")
   public String  setupUpdate(@RequestParam Integer userId, ModelMap model) {
-	  model.addAttribute("masterUser", service.getMasterUser(userId));
-	  model.addAttribute("profiles", catService.getProfileDAO().getAll());
-	  model.addAttribute("businessUnits", catService.getBusinessUnitDAO().getAll()); 
-	  model.addAttribute("employeeRols", catService.getEmployeeRolDAO().getAll()); 
-	  return "admin/user/_editUser";
+	model.addAttribute("masterUser", service.getMasterUser(userId));
+	model.addAttribute("profiles", ctService.getAll("secProfiles")); 
+    model.addAttribute("businessUnits", ctService.getAll("glBusinessUnit")); 
+	model.addAttribute("employeeRols", ctService.getAll("secEmployeeRol")); 
+	return "admin/user/_editUser";
   }
   
   @RequestMapping("/update.do")

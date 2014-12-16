@@ -8,22 +8,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.inna.sinai.common.bean.core.CatalogTemplate;
 import com.inna.sinai.common.bean.core.CatalogTemplateConfig;
-import com.inna.sinai.common.service.core.CatalogTemplateService;
+import com.inna.sinai.web.view.controller.CommonController;
 
 @Controller
 @RequestMapping("catalog/template")
-public class CatalogTemplateController {
-	
-  private CatalogTemplateService service = null;
- 
-  public void setService(CatalogTemplateService service) {
-	this.service = service;
-  }
+public class CatalogTemplateController extends CommonController {
   
   @RequestMapping("/setup.do")
   public String  setup(ModelMap model, @RequestParam String templateName){
-	CatalogTemplateConfig config =   service.getTemplate(templateName);
-	model.put("config", config);
+	model.put("config", ctService.getTemplate(templateName));
 	model.put("toSearch", new CatalogTemplate());
     return "catalog/template/catalogTemplate";
   }
@@ -32,16 +25,15 @@ public class CatalogTemplateController {
   public String  searchUser(ModelMap model
 		             , @ModelAttribute("toSearch") CatalogTemplate toSearch
 		             , @RequestParam String templateName) {
-	CatalogTemplateConfig config =   service.getTemplate(templateName);
+	CatalogTemplateConfig config =   ctService.getTemplate(templateName);
 	model.put("config", config);
-    model.addAttribute("data", service.search(toSearch, config.getTarget())); 
+    model.addAttribute("data", ctService.search(toSearch, config.getTarget())); 
     return "catalog/template/_rows";
   }
   
   @RequestMapping("/setupCreate.do")
   public String  setupCreate(ModelMap model, @RequestParam String templateName) {
-	CatalogTemplateConfig config =   service.getTemplate(templateName);
-    model.put("config", config);
+    model.put("config", ctService.getTemplate(templateName));
     model.addAttribute("newRow", new CatalogTemplate());
     return "catalog/template/_create";
   }
@@ -50,7 +42,7 @@ public class CatalogTemplateController {
   public String  create(ModelMap model
 		             , @ModelAttribute("newRow") CatalogTemplate newRow
 		             , @RequestParam String templateName) {
-	service.insert(newRow, service.getTemplate(templateName).getTarget());
+	ctService.insert(newRow, ctService.getTemplate(templateName).getTarget());
 	model.addAttribute("infMessage", "msg.insertOK");
 	return searchUser(model, newRow, templateName);
   }
@@ -58,9 +50,9 @@ public class CatalogTemplateController {
   @RequestMapping("/setupUpdate.do")
   public String  setupUpdate(ModelMap model, @RequestParam String templateName
 		                                       , @RequestParam Integer id) {
-	CatalogTemplateConfig config =   service.getTemplate(templateName);
+	CatalogTemplateConfig config = ctService.getTemplate(templateName);
     model.put("config", config);
-    model.addAttribute("editRow", service.searchById(id, config.getTarget()));
+    model.addAttribute("editRow", ctService.searchById(id, config.getTarget()));
     return "catalog/template/_edit";
   }
   
@@ -68,22 +60,21 @@ public class CatalogTemplateController {
   public String  update(ModelMap model
                     , @ModelAttribute("editRow") CatalogTemplate editRow
                     , @RequestParam String templateName) {
-	service.update(editRow, service.getTemplate(templateName).getTarget());
+	ctService.update(editRow, ctService.getTemplate(templateName).getTarget());
 	model.addAttribute("infMessage", "msg.updateOK");
     return searchUser(model, editRow, templateName);
   }
   
   @RequestMapping("/setupDelete.do")
   public String  setupDelete(ModelMap model, @RequestParam String templateName) {
-	CatalogTemplateConfig config =   service.getTemplate(templateName);
-    model.put("config", config);
+    model.put("config", ctService.getTemplate(templateName));
     return "catalog/template/_delete";
   }
   
   @RequestMapping("/delete.do")
   public String  delete(@RequestParam String rowIds, ModelMap model
 		                     , @RequestParam String templateName) {
-	service.delete(rowIds, service.getTemplate(templateName).getTarget());
+	ctService.delete(rowIds, ctService.getTemplate(templateName).getTarget());
 	model.addAttribute("infMessage", "msg.deleteOK");
 	return searchUser(model, null, templateName);
   }

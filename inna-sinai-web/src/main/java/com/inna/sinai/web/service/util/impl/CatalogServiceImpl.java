@@ -1,5 +1,8 @@
 package com.inna.sinai.web.service.util.impl;
 
+import java.util.List;
+
+import com.inna.sinai.common.bean.core.CatalogTemplate;
 import com.inna.sinai.common.service.AbstractService;
 import com.inna.sinai.web.db.dao.catalog.BusinessUnitDAO;
 import com.inna.sinai.web.db.dao.catalog.EmployeeRolDAO;
@@ -29,6 +32,10 @@ public class CatalogServiceImpl extends AbstractService implements CatalogServic
   }
   public void setProfileDAO(ProfileDAO profileDAO) {
 	this.profileDAO = profileDAO;
+  }
+  
+  public List<CatalogTemplate> getAllProfiles(){
+	  
   }
 
 }

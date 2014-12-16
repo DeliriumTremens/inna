@@ -26,14 +26,12 @@
 
    <!--::::::::::::::::::::::::::::::: Controllers :::::::::::::::::::::::::::::::-->
    
-   <bean id="catalogTemplateController" class="com.inna.sinai.web.view.controller.core.catalog.CatalogTemplateController">
-     <property name="service" ref="catalogoTemplateService"/>
-   </bean>
    
    <bean id="commonController" class="com.inna.sinai.web.view.controller.CommonController">
-     <property name="catService" ref="catService" />
+     <property name="ctService" ref="catalogoTemplateService" />
    </bean>
    
+   <bean id="catalogTemplateController" class="com.inna.sinai.web.view.controller.core.catalog.CatalogTemplateController"/>
    <bean class="com.inna.sinai.common.controller.core.ErrorController"/>
    
    <bean class="com.inna.sinai.web.view.controller.core.security.LoginController" parent ="commonController">

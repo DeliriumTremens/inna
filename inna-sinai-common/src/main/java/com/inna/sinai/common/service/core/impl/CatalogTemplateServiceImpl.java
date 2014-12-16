@@ -20,10 +20,11 @@ public class CatalogTemplateServiceImpl extends AbstractService
   public void setDao(CatalogTemplateDAO dao) {
 	this.dao = dao;
   }
-  public List<CatalogTemplate> getAll(String targetName){
-	return dao.getAll(targetName);
-  }
   
+  public List<CatalogTemplate> getAll(String templateName){
+	  return dao.getAll(templates.get(templateName).getTarget());
+  }
+
   public void setTemplates(List<CatalogTemplateConfig> templatesConfig) {
 	templates = new HashMap<String, CatalogTemplateConfig>();
 	for(CatalogTemplateConfig config : templatesConfig){
