@@ -1,7 +1,6 @@
 package com.inna.sinai.web.service.admin.impl;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.inna.sinai.common.exception.core.SystemException;
@@ -11,8 +10,6 @@ import com.inna.sinai.common.util.Utilities;
 import com.inna.sinai.web.bean.vo.MasterUser;
 import com.inna.sinai.web.db.dao.admin.UserAdminDAO;
 import com.inna.sinai.web.service.admin.UserAdminService;
-
-import static com.inna.sinai.web.constant.Literals.*;
 
 public class UserAdminServiceImpl extends AbstractService 
                                   implements UserAdminService {
@@ -41,7 +38,7 @@ public class UserAdminServiceImpl extends AbstractService
   }
 	
   public void deleteMasterUsers(String chainIds){
-	String [] userIds = chainIds.split(MARK_COMMA);
+	String [] userIds = chainIds.split(",");
 	for(int i=0;i<userIds.length;i++){
 	   dao.deleteMasterUser(new Integer(userIds[i]));	
 	}
