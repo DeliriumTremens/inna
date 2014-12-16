@@ -10,7 +10,7 @@ import com.inna.sinai.web.bean.vo.dto.Profile;
 
 public interface UserAdminDAO {
 	
-	public List<MasterUser> searchMasterUsers(UserCriteria searchParams);
+	public List<MasterUser> searchMasterUsers(MasterUser toSearch);
 	public Integer findUserIdByMail(String mail);
 	public Integer findUserIdByNickName(String nickName);
 	@Transactional(rollbackFor=Exception.class)

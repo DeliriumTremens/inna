@@ -8,7 +8,6 @@ import com.inna.sinai.common.exception.core.SystemException;
 import com.inna.sinai.common.service.AbstractService;
 import com.inna.sinai.common.service.core.EncryptionService;
 import com.inna.sinai.common.util.Utilities;
-import com.inna.sinai.web.bean.criteria.UserCriteria;
 import com.inna.sinai.web.bean.vo.MasterUser;
 import com.inna.sinai.web.db.dao.admin.UserAdminDAO;
 import com.inna.sinai.web.service.admin.UserAdminService;
@@ -29,10 +28,10 @@ public class UserAdminServiceImpl extends AbstractService
     this.dao = dao;
   }
 	
-  public List<MasterUser> searchMasterUsers(UserCriteria searchParams){
+  public List<MasterUser> searchMasterUsers(MasterUser toSearch){
 	List<MasterUser> masterUsers = new ArrayList<MasterUser>();
-	if(searchParams != null){
-		masterUsers = dao.searchMasterUsers(searchParams);
+	if(toSearch != null){
+		masterUsers = dao.searchMasterUsers(toSearch);
 	}
     return masterUsers;
   }

@@ -16,7 +16,6 @@ import com.inna.sinai.web.view.controller.CommonController;
 import static com.inna.sinai.web.constant.Literals.*;
 
 @Controller
-@SessionAttributes("lastSearchParams")
 public class UserAdministrationController  extends CommonController {
 	
   private UserAdminService service;
@@ -28,15 +27,12 @@ public class UserAdministrationController  extends CommonController {
   @RequestMapping("/usersAdministration.do")
   public String  setupSearchUser(ModelMap model){
     model.addAttribute("profiles", catService.getProfileDAO().getAll()); 
-    model.addAttribute("searchParams", new UserCriteria());
     return "admin/user/searchUser";
   }
   
   @RequestMapping("/usersAdministration/seachUsers.do")
-  public String  searchUser(@ModelAttribute("searchParams") UserCriteria
-		                                 searchParams, ModelMap model) {
-	model.addAttribute("lastSearchParams", searchParams);
-    model.addAttribute("masterUsers", service.searchMasterUsers(searchParams)); 
+  public String  searchUser(MasterUser toSearch, ModelMap model) {
+    model.addAttribute("masterUsers", service.searchMasterUsers(toSearch)); 
     return "admin/user/_userTable";
   }
 
@@ -49,7 +45,7 @@ public class UserAdministrationController  extends CommonController {
   public String  deleteUser(@RequestParam String chainIds, ModelMap model) {
 	service.deleteMasterUsers(chainIds);
 	model.addAttribute("infMessage", "msg.deleteOK");
-	return searchUser((UserCriteria) model.get("lastSearchParams"), model);
+	return searchUser(null, model);
   } 
   
   @RequestMapping("/usersAdministration/setupCreateUser.do")
@@ -62,8 +58,6 @@ public class UserAdministrationController  extends CommonController {
   @RequestMapping("/usersAdministration/createUser.do")
   public String  createUser(@ModelAttribute MasterUser newMasterUser
 		                  , ModelMap model) throws SystemException {
-	  UserCriteria searchUserParams = new UserCriteria(SEARCH_TYPE_ID_MAIL
-			                         , newMasterUser.getUser().getMail());
 	  if(service.existUserMail(newMasterUser.getUser().getMail())){
 		  model.addAttribute("errMessage", "err.duplicateMail");
 	  } else if(service.existUserNickName(newMasterUser.getCredential()
@@ -73,7 +67,7 @@ public class UserAdministrationController  extends CommonController {
 	      service.insertMasterUser(newMasterUser);
 	      model.addAttribute("infMessage", "msg.insertOK");
 	  }
-	  return searchUser(searchUserParams, model);
+	  return searchUser(newMasterUser, model);
   }
   
   @RequestMapping("/usersAdministration/setupUpdateUserInformation.do")
@@ -89,7 +83,7 @@ public class UserAdministrationController  extends CommonController {
   public String  updateUser(@ModelAttribute MasterUser masterUser, ModelMap model) {
 	  service.updateMasterUserInformation(masterUser);
 	  model.addAttribute("infMessage", "msg.updateOK");
-	  return searchUser((UserCriteria) model.get("lastSearchParams"), model);
+	  return searchUser(masterUser, model);
   }
 
 }

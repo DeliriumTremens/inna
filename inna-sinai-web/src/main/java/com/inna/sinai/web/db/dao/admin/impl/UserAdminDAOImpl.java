@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.dao.EmptyResultDataAccessException;
 
 import com.inna.sinai.common.dao.AbstractDAO;
-import com.inna.sinai.web.bean.criteria.UserCriteria;
 import com.inna.sinai.web.bean.vo.MasterUser;
 import com.inna.sinai.web.bean.vo.dto.Profile;
 import com.inna.sinai.web.bean.vo.dto.User;
@@ -15,8 +14,6 @@ import com.inna.sinai.web.bean.vo.dto.UserCredential;
 import com.inna.sinai.web.bean.vo.dto.UserProfile;
 import com.inna.sinai.web.db.dao.admin.UserAdminDAO;
 import com.inna.sinai.web.db.mapper.MasterUserMapper;
-
-import static com.inna.sinai.web.constant.Literals.*;
 
 @SuppressWarnings("unchecked")
 public class UserAdminDAOImpl extends AbstractDAO implements UserAdminDAO {
@@ -38,7 +35,7 @@ public class UserAdminDAOImpl extends AbstractDAO implements UserAdminDAO {
 		          , new Object[]{userId},new MasterUserMapper());
   }
 	  
-  public List<MasterUser> searchMasterUsers(UserCriteria searchParams) {
+  public List<MasterUser> searchMasterUsers(MasterUser toSearch) {
 	  String sqlQuery = "SELECT * " 
 	                + "FROM SEC_USERS USR, SEC_USER_CREDENTIALS CRED " 
                     + "    , CAT_SEC_PROFILES PFL, SEC_USER_PROFILES USR_PFL "
@@ -51,24 +48,24 @@ public class UserAdminDAOImpl extends AbstractDAO implements UserAdminDAO {
 		            + "      AND CGBU.ID = USR.BUSINESS_UNIT_ID"
 		            + "      AND CSUER.ID = USR.EMPLOYEE_ROL_ID";
     List<Object> params = new ArrayList<Object>();
-    if(searchParams.getCriteriaType() != null){
-      if(searchParams.getCriteriaType().equals(SEARCH_TYPE_ID_NAME)){
+    if(toSearch != null){
+      if(toSearch.getUser().getName() != null){
         sqlQuery += "AND CONCAT(USR.NAME,' ',USR.LAST_NAME,' ',USR.MIDDLE_NAME) LIKE ? " ;
-        params.add("%" + searchParams.getCriteriaValue() + "%");
-      } else if(searchParams.getCriteriaType().equals(SEARCH_TYPE_ID_NICK)) {
+        params.add("%" + toSearch.getUser().getName() + "%");
+      } else if(toSearch.getCredential().getNickName() != null) {
         sqlQuery += "AND (CRED.NICK_NAME LIKE ?) ";
-        params.add("%" + searchParams.getCriteriaValue() + "%");
-      } else if(searchParams.getCriteriaType().equals(SEARCH_TYPE_ID_MAIL)){
+        params.add("%" + toSearch.getCredential().getNickName() + "%");
+      } else if(toSearch.getUser().getMail() != null){
         sqlQuery += "AND USR.MAIL LIKE ? ";
-        params.add("%" + searchParams.getCriteriaValue() + "%");
-      } else if(searchParams.getCriteriaType().equals(SEARCH_TYPE_ID_PROFILE)){
+        params.add("%" + toSearch.getUser().getMail() + "%");
+      } else if(toSearch.getProfile().getName() != null){
           sqlQuery += "AND PFL.ID = ? ";
-          params.add(searchParams.getCriteriaValue());
+          params.add(toSearch.getProfile().getName());
       }
     }
-    if(searchParams.getOnlyLocked()){
-      sqlQuery += "AND CRED.LOCKED = ?";
-      params.add(true);
+    if(! toSearch.getCredential().getIsActive()){
+      sqlQuery += "AND CRED.IS_ACTIVE = ?";
+      params.add(false);
     }
 	return (List<MasterUser>) getJdbcTemplate().query(sqlQuery, params
 			                        .toArray(), new MasterUserMapper());
