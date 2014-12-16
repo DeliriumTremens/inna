@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
    function showEditUserInformation(userId){
-	 loadModalForm("usersAdministration/setupUpdateUserInformation.do",{userId:userId});
+	 loadModalForm("usersAdministration/setupUpdate.do",{userId:userId});
    }
 </script>
 

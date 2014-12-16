@@ -1,6 +1,6 @@
 <%@ include file="/jsp/layout/container/_pageHeaders.jsp"%>
 
-<form:form  title="Agregar" modelAttribute="newMasterUser" id="newMasterUserForm" class="styledModalForm custom[width:745]" target="ajax:result" action="usersAdministration/createUser.do">
+<form:form  title="Agregar" modelAttribute="newMasterUser" id="newMasterUserForm" class="styledModalForm custom[width:745]" target="ajax:result" action="usersAdministration/create.do">
    <table>
          <tr>
            <td align="left" class="label">Nombre<em>*</em></td>

@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
    function removeUser(){
-	   actionConfirmed("usersAdministration/deleteUsers.do","result"
+	   actionConfirmed("usersAdministration/delete.do","result"
 		  ,{'chainIds':getSelectedRows("USUARIOS")}, "modalConfirmUsersDelete");
    }
 </script>

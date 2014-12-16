@@ -3,54 +3,60 @@
 <script type="text/javascript">
   function showDeleteUsers(){
     if(getSelectedRows("USUARIOS") != ""){
-	  loadModalConfirmation("usersAdministration/setupDeleteUser.do");
+	  loadModalConfirmation("usersAdministration/setupDelete.do");
 	}
   }
    
    function showCreateUser(){
-	   loadModalForm("usersAdministration/setupCreateUser.do");
+	   loadModalForm("usersAdministration/setupCreate.do");
    }
    
    function selectCriteria(){
 	   hideValidations();
-	   $("#textValue").val("");
-	   $("#selectValue").val("");
-	   if($("#criteriaType").val()==4){
-		   $('#textValue').attr('disabled', 'disabled');
-		   $('#selectValue').removeAttr('disabled');
-		   $("#textValue").hide();
-		   $("#selectValue").show();
-	   } else{
-		   $('#selectValue').attr('disabled', 'disabled');
-		   $('#textValue').removeAttr('disabled');
-		   $("#textValue").show();
-		   $("#selectValue").hide();
+	   var criteria = $("#criteriaType").val();
+	   $("#userName").val("");
+	   $("#userMail").val("");
+	   $("#userProfile").val("");
+	   if(criteria == 1){
+		 $("#userName").show();
+		 $("#userMail").hide();
+		 $("#userProfile").hide();
+	   } else if(criteria == 2){
+			$("#userName").hide();
+			$("#userMail").show();
+			$("#userProfile").hide();
+	   } else if(criteria == 3){
+			$("#userName").hide();
+			$("#userMail").hide();
+			$("#userProfile").show();
 	   }
+	   
    }
    
    </script>
 
 <div id="pageContent" class="pageContent">
-  <div id ="pageTitle" class="pageTitle">Administracion de Usuarios</div>
+  <div id ="pageTitle" class="pageTitle">Administración de Usuarios</div>
   <div class="messageArea"></div>
   <div id="searchArea" class="searchArea">
-     <form:form modelAttribute="searchParams" id="searchUsersForm" target="ajax:result" action="usersAdministration/seachUsers.do" cssClass="validableForm">
+     <form:form modelAttribute="toSearch" id="searchUsersForm" target="ajax:result" action="usersAdministration/seach.do" cssClass="validableForm">
          <table class="fullWidthTable">
               <tr>
                  <td class="label" style="width:100px;">
                    Busqueda por:
                  </td>
                  <td style="width:1%">
-                    <form:select path="criteriaType" id="criteriaType" cssClass="validate[funcCall[requiredIf[textValue]], funcCall[requiredIf[selectValue]]] selectBox" onchange="selectCriteria()">
-                        <form:option value="">SELECCIONE</form:option>
-                        <form:options items="${searchParams.criteriaTypes}"  
-                                      itemValue="id"
-                                      itemLabel="name"/>
-                    </form:select>
+                    <select id="criteriaType" class="validate[funcCall[requiredIf[userName]], funcCall[requiredIf[userMail]], funcCall[requiredIf[userProfile]]] selectBox" onchange="selectCriteria()">
+                        <option value="">SELECCIONE</option>
+                        <option value="1">NOMBRE</option>
+                        <option value="2">E-MAIL</option>
+                        <option value="3">PERFIL</option>
+                    </select>
                  </td>
                  <td>
-                    <form:input path="criteriaValue" id="textValue" cssClass="validate[funcCall[requiredIf[criteriaType]]] fullWidthInput" />
-                    <form:select path="criteriaValue" id="selectValue" cssClass="validate[funcCall[requiredIf[criteriaType]]] bigSelect" style="display:none">
+                    <form:input path="user.name" id="userName" cssClass="validate[funcCall[requiredIf[criteriaType]]] fullWidthInput" />
+                    <form:input path="user.mail" id="userMail" cssClass="validate[funcCall[requiredIf[criteriaType]]] fullWidthInput" style="display:none"/>
+                    <form:select path="profile.id" id="userProfile" cssClass="validate[funcCall[requiredIf[criteriaType]]] fullWidthSelect" style="display:none">
                        <form:option value="">SELECCIONE</form:option>
                        <form:options items="${profiles}"  
                                itemValue="id"
@@ -62,7 +68,7 @@
                 <td></td>
                 <td></td>
                 <td align="left" style="padding: 0px 0 0 8px;">
-                    <form:checkbox path="onlyLocked"></form:checkbox>
+                    <form:checkbox path="credential.isActive"></form:checkbox>
                     <span class ="litleLabel">Solo bloqueados</span>
                 </td>
               </tr>

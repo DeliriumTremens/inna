@@ -5,17 +5,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.inna.sinai.common.exception.core.SystemException;
-import com.inna.sinai.web.bean.criteria.UserCriteria;
 import com.inna.sinai.web.bean.vo.MasterUser;
 import com.inna.sinai.web.service.admin.UserAdminService;
 import com.inna.sinai.web.view.controller.CommonController;
 
-import static com.inna.sinai.web.constant.Literals.*;
-
 @Controller
+@RequestMapping("usersAdministration")
 public class UserAdministrationController  extends CommonController {
 	
   private UserAdminService service;
@@ -24,39 +21,40 @@ public class UserAdministrationController  extends CommonController {
 	this.service = service;
   }
 
-  @RequestMapping("/usersAdministration.do")
-  public String  setupSearchUser(ModelMap model){
+  @RequestMapping("/setup.do")
+  public String  setup(ModelMap model){
     model.addAttribute("profiles", catService.getProfileDAO().getAll()); 
+    model.addAttribute("toSearch", new MasterUser());
     return "admin/user/searchUser";
   }
   
-  @RequestMapping("/usersAdministration/seachUsers.do")
-  public String  searchUser(MasterUser toSearch, ModelMap model) {
+  @RequestMapping("/seach.do")
+  public String  search(MasterUser toSearch, ModelMap model) {
     model.addAttribute("masterUsers", service.searchMasterUsers(toSearch)); 
     return "admin/user/_userTable";
   }
 
-  @RequestMapping("/usersAdministration/setupDeleteUser.do")
-  public String  setupDeleteUser(ModelMap model) {
+  @RequestMapping("/setupDelete.do")
+  public String  setupDelete(ModelMap model) {
 	  return "admin/user/_deleteUser";
   }
   
-  @RequestMapping("/usersAdministration/deleteUsers.do")
-  public String  deleteUser(@RequestParam String chainIds, ModelMap model) {
+  @RequestMapping("/delete.do")
+  public String  delete(@RequestParam String chainIds, ModelMap model) {
 	service.deleteMasterUsers(chainIds);
 	model.addAttribute("infMessage", "msg.deleteOK");
-	return searchUser(null, model);
+	return search(null, model);
   } 
   
-  @RequestMapping("/usersAdministration/setupCreateUser.do")
-  public String  setupCreateUser(ModelMap model) {
+  @RequestMapping("/setupCreate.do")
+  public String  setupCreate(ModelMap model) {
 	  model.addAttribute("profiles", catService.getProfileDAO().getAll()); 
 	  model.addAttribute("newMasterUser", new MasterUser());
 	  return "admin/user/_createUser";
   }
   
-  @RequestMapping("/usersAdministration/createUser.do")
-  public String  createUser(@ModelAttribute MasterUser newMasterUser
+  @RequestMapping("/create.do")
+  public String  create(@ModelAttribute MasterUser newMasterUser
 		                  , ModelMap model) throws SystemException {
 	  if(service.existUserMail(newMasterUser.getUser().getMail())){
 		  model.addAttribute("errMessage", "err.duplicateMail");
@@ -67,10 +65,10 @@ public class UserAdministrationController  extends CommonController {
 	      service.insertMasterUser(newMasterUser);
 	      model.addAttribute("infMessage", "msg.insertOK");
 	  }
-	  return searchUser(newMasterUser, model);
+	  return search(newMasterUser, model);
   }
   
-  @RequestMapping("/usersAdministration/setupUpdateUserInformation.do")
+  @RequestMapping("/setupUpdate.do")
   public String  setupUpdateUser(@RequestParam Integer userId, ModelMap model) {
 	  model.addAttribute("masterUser", service.getMasterUser(userId));
 	  model.addAttribute("profiles", catService.getProfileDAO().getAll());
@@ -79,11 +77,11 @@ public class UserAdministrationController  extends CommonController {
 	  return "admin/user/_editUser";
   }
   
-  @RequestMapping("/usersAdministration/updateUserInformation.do")
-  public String  updateUser(@ModelAttribute MasterUser masterUser, ModelMap model) {
+  @RequestMapping("/update.do")
+  public String  update(@ModelAttribute MasterUser masterUser, ModelMap model) {
 	  service.updateMasterUserInformation(masterUser);
 	  model.addAttribute("infMessage", "msg.updateOK");
-	  return searchUser(masterUser, model);
+	  return search(masterUser, model);
   }
 
 }

@@ -15,6 +15,8 @@ import com.inna.sinai.web.bean.vo.dto.UserProfile;
 import com.inna.sinai.web.db.dao.admin.UserAdminDAO;
 import com.inna.sinai.web.db.mapper.MasterUserMapper;
 
+import static com.inna.sinai.common.util.Utilities.*;
+
 @SuppressWarnings("unchecked")
 public class UserAdminDAOImpl extends AbstractDAO implements UserAdminDAO {
 
@@ -46,24 +48,24 @@ public class UserAdminDAOImpl extends AbstractDAO implements UserAdminDAO {
 		            + "      AND USR_PFL.PROFILE_ID = PFL.ID"
 		            + "      AND SUAI.USER_ID = USR.ID"
 		            + "      AND CGBU.ID = USR.BUSINESS_UNIT_ID"
-		            + "      AND CSUER.ID = USR.EMPLOYEE_ROL_ID";
+		            + "      AND CSUER.ID = USR.EMPLOYEE_ROL_ID ";
     List<Object> params = new ArrayList<Object>();
     if(toSearch != null){
-      if(toSearch.getUser().getName() != null){
+       if(isNotNull(toSearch.getUser().getId())){
+    	   sqlQuery += "AND USR.ID = ? ";
+    	   params.add(toSearch.getUser().getId());
+       }else if(isNotNull(toSearch.getUser().getName())){
         sqlQuery += "AND CONCAT(USR.NAME,' ',USR.LAST_NAME,' ',USR.MIDDLE_NAME) LIKE ? " ;
         params.add("%" + toSearch.getUser().getName() + "%");
-      } else if(toSearch.getCredential().getNickName() != null) {
-        sqlQuery += "AND (CRED.NICK_NAME LIKE ?) ";
-        params.add("%" + toSearch.getCredential().getNickName() + "%");
-      } else if(toSearch.getUser().getMail() != null){
+      } else if(isNotNull(toSearch.getUser().getMail())){
         sqlQuery += "AND USR.MAIL LIKE ? ";
         params.add("%" + toSearch.getUser().getMail() + "%");
-      } else if(toSearch.getProfile().getName() != null){
+      } else if(isNotNull(toSearch.getProfile().getId())){
           sqlQuery += "AND PFL.ID = ? ";
-          params.add(toSearch.getProfile().getName());
+          params.add(toSearch.getProfile().getId());
       }
     }
-    if(! toSearch.getCredential().getIsActive()){
+    if(toSearch.getCredential().getIsActive()){
       sqlQuery += "AND CRED.IS_ACTIVE = ?";
       params.add(false);
     }

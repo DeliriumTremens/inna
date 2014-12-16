@@ -8,10 +8,10 @@ import com.inna.sinai.web.bean.vo.dto.UserCredential;
 
 public class MasterUser extends AbstractBean {
 	
-	private User user;
-	private UserCredential credential;
-	private UserAdditionalInformation additionalInformation;
-	private Profile profile;
+	private User user = new User();
+	private UserCredential credential = new UserCredential();
+	private UserAdditionalInformation additionalInformation = new UserAdditionalInformation();
+	private Profile profile = new Profile();
 	
 	public User getUser() {
 		return user;

@@ -1,5 +1,5 @@
 <%@ include file="/jsp/layout/container/_pageHeaders.jsp"%>
-<form:form modelAttribute="masterUser" id="modalFormEditUser" class="styledModalForm custom[width:745]" title="Editar" target="ajax:result" action="usersAdministration/updateUserInformation.do">
+<form:form modelAttribute="masterUser" id="modalFormEditUser" class="styledModalForm custom[width:745]" title="Editar" target="ajax:result" action="usersAdministration/update.do">
    <form:hidden path="user.id"/>
    <table>
         <tr>

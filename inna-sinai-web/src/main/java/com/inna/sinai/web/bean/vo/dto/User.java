@@ -5,7 +5,6 @@ import com.inna.sinai.common.bean.AbstractBean;
 
 public class User extends AbstractBean{
 	
-  private UserCredential credential; 
   private Integer id;
   private String name;
   private String lastName;
