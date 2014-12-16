@@ -19,8 +19,8 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/jquery-1.6.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/jquery.ui-1.8.13.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/jquery.ui.datepicker-es.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/jquery.validationEngine-es.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/jquery.validationEngine.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/jquery.validationEngine-es.js" charset="utf-8"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/jquery.validationEngine.js" charset="utf-8"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/jquery.jqGrid.locale-es.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/jquery.jqGrid.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/jquery.dateRangePicker.js"></script>

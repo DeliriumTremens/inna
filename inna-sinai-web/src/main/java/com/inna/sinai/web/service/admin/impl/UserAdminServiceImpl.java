@@ -49,12 +49,11 @@ public class UserAdminServiceImpl extends AbstractService
   
   public void insertMasterUser(MasterUser masterUser) throws SystemException {
 	  String randomPassword =  Utilities.getRandomString(8);
-	  masterUser.getCredential().setIsActive(true);
-	  masterUser.getCredential().setLastLogon(new Date());
+	  masterUser.getCredential().setIsLocked(false);
+	  masterUser.getCredential().setLastLogon(null);
 	  masterUser.getCredential().setPassword(encrypter.encrypt(masterUser
 			          .getCredential().getNickName() +  randomPassword));
 	  dao.insertMasterUser(masterUser);
-	  System.out.println(randomPassword);
   }
   
   public void updateMasterUserInformation(MasterUser masterUser){

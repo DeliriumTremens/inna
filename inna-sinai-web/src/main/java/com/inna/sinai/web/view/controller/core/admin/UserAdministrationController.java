@@ -48,9 +48,11 @@ public class UserAdministrationController  extends CommonController {
   
   @RequestMapping("/setupCreate.do")
   public String  setupCreate(ModelMap model) {
-	  model.addAttribute("profiles", catService.getProfileDAO().getAll()); 
-	  model.addAttribute("newMasterUser", new MasterUser());
-	  return "admin/user/_createUser";
+	model.addAttribute("profiles", catService.getProfileDAO().getAll());
+	model.addAttribute("businessUnits", catService.getBusinessUnitDAO().getAll()); 
+	model.addAttribute("employeeRols", catService.getEmployeeRolDAO().getAll()); 
+	model.addAttribute("newMasterUser", new MasterUser());
+	return "admin/user/_createUser";
   }
   
   @RequestMapping("/create.do")
@@ -69,7 +71,7 @@ public class UserAdministrationController  extends CommonController {
   }
   
   @RequestMapping("/setupUpdate.do")
-  public String  setupUpdateUser(@RequestParam Integer userId, ModelMap model) {
+  public String  setupUpdate(@RequestParam Integer userId, ModelMap model) {
 	  model.addAttribute("masterUser", service.getMasterUser(userId));
 	  model.addAttribute("profiles", catService.getProfileDAO().getAll());
 	  model.addAttribute("businessUnits", catService.getBusinessUnitDAO().getAll()); 

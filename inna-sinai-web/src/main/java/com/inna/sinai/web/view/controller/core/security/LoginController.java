@@ -34,7 +34,7 @@ public class LoginController extends CommonController {
 	String errMessage = null;
 	if(credential == null){
 		errMessage = "err.badUser";
-	} else if(! credential.getIsActive()){
+	} else if(credential.getIsLocked()){
 		errMessage = "err.lockedUser";
 	} else if(!service.isPasswordCorrect(userCredential, credential)){
 		errMessage = "err.wrongPassword";

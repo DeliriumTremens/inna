@@ -64,10 +64,10 @@ public class UserAdminDAOImpl extends AbstractDAO implements UserAdminDAO {
           sqlQuery += "AND PFL.ID = ? ";
           params.add(toSearch.getProfile().getId());
       }
-    }
-    if(toSearch.getCredential().getIsActive()){
-      sqlQuery += "AND CRED.IS_ACTIVE = ?";
-      params.add(false);
+      if(toSearch.getCredential().getIsLocked()){
+    	  sqlQuery += "AND CRED.IS_LOCKED = ?";
+    	  params.add(true);
+      } 
     }
 	return (List<MasterUser>) getJdbcTemplate().query(sqlQuery, params
 			                        .toArray(), new MasterUserMapper());
@@ -88,8 +88,8 @@ public class UserAdminDAOImpl extends AbstractDAO implements UserAdminDAO {
   public void deleteMasterUser(Integer userId){
     deleteUserCredential(userId);
     deleteUserProfile(userId);
-    deleteUser(userId);
     deleteUserAdditionalInformation(userId);
+    deleteUser(userId);
   }
   
   
@@ -137,22 +137,24 @@ public class UserAdminDAOImpl extends AbstractDAO implements UserAdminDAO {
   }
   
   private void deleteUserAdditionalInformation(Integer userId){
-	 String sqlQuery = "DELETE FROM SEC_USER_ADDITIONA_INFORMATION WHERE USER_ID = ?";
+	 String sqlQuery = "DELETE FROM SEC_USER_ADDITIONAL_INFORMATION WHERE USER_ID = ?";
 	 getJdbcTemplate().update(sqlQuery, new Object[]{userId});
   }
 	
   private void insertUser(User user){
-    String sqlQuery = "INSERT INTO SEC_USERS (NAME, LAST_NAME, MIDDLE_NAME, MAIL) " 
-    	            + " VALUES (?,?,?,?)";
+    String sqlQuery = "INSERT INTO SEC_USERS (NAME, LAST_NAME, MIDDLE_NAME, MAIL "
+    		        + "                     , EMPLOYEE_ROL_ID, BUSINESS_UNIT_ID) "
+    	            + " VALUES (?,?,?,?,?,?)";
     getJdbcTemplate().update(sqlQuery, new Object[]{user.getName(), user
-				 .getLastName(), user.getMiddleName(), user.getMail()});
+				            .getLastName(), user.getMiddleName(), user.getMail()
+				          , user.getEmployeeRolId(), user.getBusinessUnitId()});
   }
   
   private void insertUserCredential(UserCredential userCredential){
     String sqlQuery = "INSERT INTO SEC_USER_CREDENTIALS VALUES (?,?,?,?,?)";
     getJdbcTemplate().update(sqlQuery, new Object[]{userCredential.getUserId()
     		, userCredential.getNickName(), userCredential.getPassword()
-    		, userCredential.getLastLogon(), userCredential.getIsActive()});
+    		, userCredential.getLastLogon(), userCredential.getIsLocked()});
     
   }  
   

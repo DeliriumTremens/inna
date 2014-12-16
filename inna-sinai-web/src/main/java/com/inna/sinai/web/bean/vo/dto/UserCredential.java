@@ -6,11 +6,11 @@ import com.inna.sinai.common.bean.AbstractBean;
 
 public class UserCredential extends AbstractBean{
 	
-	private Integer userId;
-	private String nickName;
-	private String password;
-	private Date lastLogon;
-	private Boolean isActive;
+	private Integer userId = 0;
+	private String nickName = null;
+	private String password = null;
+	private Date lastLogon = null;
+	private Boolean isLocked = false;
 	
 	public Integer getUserId() {
 		return userId;
@@ -36,11 +36,11 @@ public class UserCredential extends AbstractBean{
 	public void setLastLogon(Date lastLogon) {
 		this.lastLogon = lastLogon;
 	}
-	public Boolean getIsActive() {
-		return isActive;
+	public Boolean getIsLocked() {
+		return isLocked;
 	}
-	public void setIsActive(Boolean isActive) {
-		this.isActive = isActive;
+	public void setIsLocked(Boolean isLocked) {
+		this.isLocked = isLocked;
 	}
 
 }

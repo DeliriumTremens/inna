@@ -68,7 +68,7 @@
                 <td></td>
                 <td></td>
                 <td align="left" style="padding: 0px 0 0 8px;">
-                    <form:checkbox path="credential.isActive"></form:checkbox>
+                    <form:checkbox path="credential.isLocked"></form:checkbox>
                     <span class ="litleLabel">Solo bloqueados</span>
                 </td>
               </tr>

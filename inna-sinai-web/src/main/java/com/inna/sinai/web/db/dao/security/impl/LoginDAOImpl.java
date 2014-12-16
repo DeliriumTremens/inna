@@ -71,11 +71,10 @@ public class LoginDAOImpl extends AbstractDAO implements LoginDAO {
   }
   
   public void updateCredentials(UserCredential credentials){
-	  String sqlQuery = "UPDATE SEC_USER_CREDENTIALS CRED SET CRED.LAST_LOGON = ? "
-	  		          + "                                    , CRED.IS_ACTIVE = ? " 
+	  String sqlQuery = "UPDATE SEC_USER_CREDENTIALS CRED SET CRED.LAST_LOGON = ? " 
 		              + "WHERE CRED.USER_ID = ? ";
 	  getJdbcTemplate().update(sqlQuery, new Object[]{credentials.getLastLogon()
-			             , credentials.getIsActive(), credentials.getUserId()});
+			                                        , credentials.getUserId()});
   }
 
 }

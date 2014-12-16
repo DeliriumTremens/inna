@@ -25,8 +25,8 @@ public class MasterUserMapper implements RowMapper {
 	private User getUser(ResultSet rs) throws SQLException {
 		User user = new User();
 		user.setId(rs.getInt(1));
-		user.setBusinessUnitId(rs.getInt(2));
-		user.setEmployeeRolId(rs.getInt(3));
+		user.setEmployeeRolId(rs.getInt(2));
+		user.setBusinessUnitId(rs.getInt(3));
 		user.setName(rs.getString(4));
 		user.setLastName(rs.getString(5));
 		user.setMiddleName(rs.getString(6));
@@ -40,7 +40,7 @@ public class MasterUserMapper implements RowMapper {
 		credential.setNickName(rs.getString(9));
 		credential.setPassword(rs.getString(10));
 		credential.setLastLogon(rs.getDate(11));
-		credential.setIsActive(rs.getBoolean(12));
+		credential.setIsLocked(rs.getBoolean(12));
 		return credential;
 	}
 	
@@ -48,13 +48,13 @@ public class MasterUserMapper implements RowMapper {
 			                                               throws SQLException {
 	  UserAdditionalInformation addInformation= new UserAdditionalInformation();
 	  addInformation.setUserId(rs.getInt(16));
-	  addInformation.setImei(rs.getString(17));
-	  addInformation.setPhoneNumber(rs.getString(18));
-	  addInformation.setMailPass(rs.getString(19));
-	  addInformation.setSkyMobilePass(rs.getString(20));
-	  addInformation.setNit(rs.getString(21));
-	  addInformation.setNitPass(rs.getString(22));
-	  addInformation.setHeatKey(rs.getString(23));
+	  addInformation.setImei(rs.getString(19));
+	  addInformation.setPhoneNumber(rs.getString(20));
+	  addInformation.setMailPass(rs.getString(21));
+	  addInformation.setSkyMobilePass(rs.getString(22));
+	  addInformation.setNit(rs.getString(23));
+	  addInformation.setNitPass(rs.getString(24));
+	  addInformation.setHeatKey(rs.getString(25));
 	  return addInformation;
 	}
 	

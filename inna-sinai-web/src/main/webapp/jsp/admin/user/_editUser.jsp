@@ -1,6 +1,7 @@
 <%@ include file="/jsp/layout/container/_pageHeaders.jsp"%>
-<form:form modelAttribute="masterUser" id="modalFormEditUser" class="styledModalForm custom[width:745]" title="Editar" target="ajax:result" action="usersAdministration/update.do">
+<form:form modelAttribute="masterUser" id="modalFormEditUser" class="styledModalForm validableForm custom[width:745]" title="Editar" target="ajax:result" action="usersAdministration/update.do">
    <form:hidden path="user.id"/>
+   <form:hidden path="additionalInformation.userId"/>
    <table>
         <tr>
            <td align="left" class="label">Nombre<em>*</em></td>
@@ -8,9 +9,9 @@
            <td align="left">Apellido Materno</td>
         </tr>
         <tr>
-           <td><form:input path="user.name" cssClass="littleInput validate[required,custom[onlyLetterSp]]" /></td>
-           <td><form:input path="user.lastName" cssClass="littleInput validate[required,custom[onlyLetterSp]]"/></td>
-           <td><form:input path="user.middleName" cssClass="littleInput validate[required,custom[onlyLetterSp]]"/></td>
+           <td><form:input path="user.name" cssClass="littleInput validate[required]" /></td>
+           <td><form:input path="user.lastName" cssClass="littleInput validate[required]"/></td>
+           <td><form:input path="user.middleName" cssClass="littleInput validate[required]"/></td>
         </tr>
         <tr>
            <td align="left">Sucursal</td>
@@ -50,7 +51,7 @@
         </tr>
         <tr>
            <td><form:input path="credential.nickName" cssClass="littleInput validate[required]"/></td>
-           <td><form:input path="user.mail" cssClass="littleInput validate[required,custom[email]]"/></td>
+           <td><form:input path="user.mail" cssClass="littleInput validate[required]"/></td>
            <td><form:input path="additionalInformation.phoneNumber" cssClass="littleInput validate[required]"/></td>
         </tr>
         <tr>
@@ -66,14 +67,25 @@
         <tr>
            <td align="left">MAIL PASS</td>
            <td align="left">HEAT PASS</td>
-           <td align="left">ACTIVO</td>
+           <td align="left">SKY MOBILE PASS</td>
         </tr>
         <tr>
            <td><form:input path="additionalInformation.mailPass" cssClass="littleInput validate[required]"/></td>
            <td><form:input path="additionalInformation.heatKey" cssClass="littleInput validate[required]"/></td>
-           <td><form:checkbox path="credential.isActive"/></td>
+           <td><form:input path="additionalInformation.skyMobilePass" cssClass="littleInput validate[required]"/></td>
         </tr>
        
+        <tr>
+           <td align="left">BLOQUEADO</td>
+           <td align="left"></td>
+           <td align="left"></td>
+        </tr>
+        <tr>
+           <td align="left"><form:checkbox path="credential.isLocked"/></td>
+           <td></td>
+           <td></td>
+        </tr>
+        
         <tr height="50px">
 	       <td colspan="3">
 	           <button class="litleButton styledButton"  style="float:left" type="button" onclick="closeModalForm('modalFormEditUser')">Cancelar</button>
