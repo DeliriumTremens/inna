@@ -119,6 +119,7 @@ public class UserAdminDAOImpl extends AbstractDAO implements UserAdminDAO {
     updateUser(masterUser.getUser());
     updateUserProfile(masterUser.getProfile(), masterUser.getUser());
     updateUserAdditionaInformation(masterUser.getAdditionalInformation());
+    updateCredentials(masterUser.getCredential());
   }
   
   private void deleteUser(Integer userId){
@@ -160,7 +161,7 @@ public class UserAdminDAOImpl extends AbstractDAO implements UserAdminDAO {
   
   private void insertUserAdditionalInformation(UserAdditionalInformation addInf){
 	String sqlQuery = "INSERT INTO SEC_USER_ADDITIONAL_INFORMATION VALUES (?,?,?,?,?,?,?,?)";
-	 getJdbcTemplate().update(sqlQuery, new Object[]{addInf.getUserId(), addInf.getImei()
+	getJdbcTemplate().update(sqlQuery, new Object[]{addInf.getUserId(), addInf.getImei()
 			                     , addInf.getPhoneNumber(), addInf.getMailPass()
 			                     , addInf.getSkyMobilePass(), addInf.getNit()
 			                     , addInf.getNitPass(), addInf.getHeatKey()});
@@ -173,20 +174,19 @@ public class UserAdminDAOImpl extends AbstractDAO implements UserAdminDAO {
   }
   
   private void updateUser(User user){
-	  String sqlQuery = "UPDATE SEC_USERS SET NAME = ?, LAST_NAME= ?" 
-		              + "                   , MIDDLE_NAME = ?, MAIL = ? " 
-		              + "WHERE ID = ?";
-	  getJdbcTemplate().update(sqlQuery, new Object[]{user.getName()
+	String sqlQuery = "UPDATE SEC_USERS SET NAME = ?, LAST_NAME= ?" 
+		            + "                   , MIDDLE_NAME = ?, MAIL = ? " 
+		            + "WHERE ID = ?";
+	getJdbcTemplate().update(sqlQuery, new Object[]{user.getName()
 			          , user.getLastName(), user.getMiddleName(), user.getMail()
 			                                                   , user.getId()});
   }
   
   private void updateUserProfile(Profile profile, User user){
-	  String sqlQuery = "UPDATE SEC_USER_PROFILES SET PROFILE_ID = ? "
-		              + "WHERE USER_ID = ?";
-	  getJdbcTemplate().update(sqlQuery, new Object[]{profile.getId()
-			                                        , user.getId()});
-	  
+	String sqlQuery = "UPDATE SEC_USER_PROFILES SET PROFILE_ID = ? "
+		            + "WHERE USER_ID = ?";
+	getJdbcTemplate().update(sqlQuery, new Object[]{profile.getId()
+			                                      , user.getId()});	  
   }
   
   private void updateUserAdditionaInformation(UserAdditionalInformation addInf){
@@ -199,6 +199,14 @@ public class UserAdminDAOImpl extends AbstractDAO implements UserAdminDAO {
 				                     , addInf.getSkyMobilePass(), addInf.getNit()
 				                     , addInf.getNitPass(), addInf.getHeatKey()
 				                     , addInf.getUserId()});
-	  }
+  }
+  
+  private void updateCredentials(UserCredential credential){
+	String sqlQuery = "UPDATE SEC_USER_CREDENTIALS SET NICK_NAME = ? "
+				    + "                              , IS_LOCKED = ? "
+			        + "WHERE USER_ID = ?";
+	getJdbcTemplate().update(sqlQuery, new Object[]{credential.getNickName()
+				           , credential.getIsLocked(), credential.getUserId()});	  
+  }
   
 }

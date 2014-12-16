@@ -31,8 +31,10 @@
      <property name="ctService" ref="catalogoTemplateService" />
    </bean>
    
-   <bean id="catalogTemplateController" class="com.inna.sinai.web.view.controller.core.catalog.CatalogTemplateController"/>
    <bean class="com.inna.sinai.common.controller.core.ErrorController"/>
+   
+   
+   <bean id="catalogTemplateController" class="com.inna.sinai.web.view.controller.core.catalog.CatalogTemplateController" parent="commonController"/>
    
    <bean class="com.inna.sinai.web.view.controller.core.security.LoginController" parent ="commonController">
       <property name="service" ref="loginService" />

@@ -70,12 +70,6 @@
          </property>
       </bean>
       
-      <bean id="catService" class="com.inna.sinai.web.service.util.impl.CatalogServiceImpl">
-         <property name="businessUnitDAO" ref="businessUnitDAO" />
-         <property name="employeeRolDAO" ref="employeeRolDAO" />
-         <property name="profileDAO" ref="profileDAO" />
-      </bean>
-      
       <bean id="encryptionService" class="com.inna.sinai.common.service.core.impl.EncryptionServiceImpl">
          <property name="algorithm" value="SHA-1" />
        </bean>

@@ -2,6 +2,7 @@
 <form:form modelAttribute="masterUser" id="modalFormEditUser" class="styledModalForm validableForm custom[width:745]" title="Editar" target="ajax:result" action="usersAdministration/update.do">
    <form:hidden path="user.id"/>
    <form:hidden path="additionalInformation.userId"/>
+   <form:hidden path="credential.userId"/>
    <table>
         <tr>
            <td align="left" class="label">Nombre<em>*</em></td>

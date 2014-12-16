@@ -38,8 +38,6 @@
        <bean id="catalogTemplateDAO" class="com.inna.sinai.common.dao.core.impl.CatalogTemplateDAOImpl" parent="innaDBTemplate"/>      
        <bean id="loginDAO" class="com.inna.sinai.web.db.dao.security.impl.LoginDAOImpl" parent="innaDBTemplate"/>       
        <bean id="userDAO" class="com.inna.sinai.web.db.dao.admin.impl.UserAdminDAOImpl" parent="innaDBTemplate"/>
-       <bean id="businessUnitDAO" class="com.inna.sinai.web.db.dao.catalog.impl.BusinessUnitDAOImpl" parent="innaDBTemplate"/>
-       <bean id="employeeRolDAO" class="com.inna.sinai.web.db.dao.catalog.impl.EmployeeRolDAOImpl" parent="innaDBTemplate"/>
-       <bean id="profileDAO" class="com.inna.sinai.web.db.dao.catalog.impl.ProfileDAOImpl" parent="innaDBTemplate"/>
+
 
 </beans>
