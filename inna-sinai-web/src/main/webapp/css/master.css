@@ -39,7 +39,8 @@ div.content {
     width: 88%;
     height: 75%;
     float:right;
-    font: bold 12px "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif"
+    font: bold 12px "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+    overflow-y: auto;
 }
 
 div.footer {
@@ -267,6 +268,11 @@ div.loader {
 .littleInput{
    font: bold 12px "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
    width: 230px;
+}
+
+.miniInput{
+   font: bold 12px "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+   width: 80px;
 }
 
 .standarInput{

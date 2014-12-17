@@ -44,5 +44,7 @@
    <bean class="com.inna.sinai.web.view.controller.core.admin.UserAdministrationController" parent ="commonController">
         <property name="service" ref="userService" />
    </bean>
+   
+   <bean id="installationsReportController" class="com.inna.sinai.web.view.controller.core.reports.InstallationsReportController" parent="commonController"/>
 
 </beans>

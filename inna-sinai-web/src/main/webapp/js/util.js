@@ -7,7 +7,6 @@ function _init(){
 	validate();
 	stylize();
 	setHandlers();
-	$( "#tabs" ).tabs();
 }
 
 /*
