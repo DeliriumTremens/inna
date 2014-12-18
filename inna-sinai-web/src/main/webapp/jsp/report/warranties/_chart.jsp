@@ -2,7 +2,7 @@
     <!--Load the AJAX API-->
     
     <script type="text/javascript">
-    
+
     var data = google.visualization.arrayToDataTable([
                                                       ['Zona', 'No. Instalaciones'],
                                                       ['CHIMALHUACAN',  1000],
@@ -22,7 +22,7 @@
                                                     ]);
 
 
-  var chart = new google.visualization.ColumnChart(document.getElementById('zones'));
+  var chart = new google.visualization.ColumnChart(document.getElementById('chart_zones'));
   chart.draw(data);
  var data = google.visualization.arrayToDataTable([
                                                    ['Instalador', 'No. Instalaciones'],
@@ -51,12 +51,12 @@
                                                    ['Instalador 24',  1170]]);
  
 
-var chart = new google.visualization.ColumnChart(document.getElementById('installers'));
+var chart = new google.visualization.ColumnChart(document.getElementById('chart_tech'));
 
-chart.draw(data);
+chart.draw(data);   
 
 $(document).ready(function() {
-	$( "#chartTabs" ).tabs();
+	$( "#tabs1" ).tabs();
 	});
     </script>
 
@@ -64,20 +64,20 @@ $(document).ready(function() {
 <div align="left">
    Total de registros: 876
 </div>
-<div id="chartTabs">
+<div id="tabs1">
 	<ul>
 		<li>
-			<a href="#chart1">Zona de Trabajo</a>
+			<a href="#tabs-1">Zona de Trabajo</a>
 		</li>
 		<li>
-			<a href="#chart2">Tecnico Instalador</a>
+			<a href="#tabs-2">Tecnico Instalador</a>
 		</li>
 	</ul>
-	<div id="chart1">
-		<div id="zones" style="width: 900px; height: 350px;"></div>
+	<div id="tabs-1">
+		<div id="chart_zones" style="width: 900px; height: 350px;"></div>
 	</div>
-	<div id="chart2" style="width: 900px; height: 350px;">
-		<div id="installers" style="width: 900px; height: 350px;"></div>
+	<div id="tabs-2" style="width: 900px; height: 350px;">
+		<div id="chart_tech" style="width: 900px; height: 350px;"></div>
 	</div>
 </div>
 

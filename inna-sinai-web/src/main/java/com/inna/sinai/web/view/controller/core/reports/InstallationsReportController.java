@@ -15,7 +15,7 @@ public class InstallationsReportController extends CommonController{
   @RequestMapping("/setup.do")
   public String  setup(ModelMap model){
 	model.put("toSearch", new ReportSearch());
-	return "report/installations/installationsReport";
+	return "report/installations/installationReport";
   }
   
   @RequestMapping("/search.do")
