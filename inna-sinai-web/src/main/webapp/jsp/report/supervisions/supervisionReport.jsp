@@ -9,10 +9,10 @@
 </script>
 
 <div id="pageContent" class="pageContent">
-  <div id ="pageTitle" class="pageTitle">Reporte de Garantias</div>
+  <div id ="pageTitle" class="pageTitle">Reporte de Supervisiones</div>
   <div class="messageArea"></div>
   <div id="searchArea" class="searchArea">
-     <form:form modelAttribute="toSearch" id="searchForm" target="ajax:result" action="report/warranties/search.do" cssClass="validableForm">
+     <form:form modelAttribute="toSearch" id="searchForm" target="ajax:result" action="report/supervisions/search.do" cssClass="validableForm">
      
 	
          <table class="fullWidthTable" >
