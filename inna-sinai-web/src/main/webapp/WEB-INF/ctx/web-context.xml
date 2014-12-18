@@ -50,5 +50,6 @@
    <bean id="supervisionsReportController" class="com.inna.sinai.web.view.controller.core.reports.SupervisionReportController" parent="commonController"/>
    <bean id="warrantyReportController" class="com.inna.sinai.web.view.controller.core.reports.WarrantyReportController" parent="commonController"/>
    <bean id="rescheduleReportController" class="com.inna.sinai.web.view.controller.core.reports.RescheduleReportController" parent="commonController"/>
+   <bean id="contractController" class="com.inna.sinai.web.view.controller.core.operation.ContractController" parent="commonController"/>
 
 </beans>

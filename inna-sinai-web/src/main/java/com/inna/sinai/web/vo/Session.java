@@ -1,10 +1,6 @@
-package com.inna.sinai.web.bean.vo;
+package com.inna.sinai.web.vo;
 
 import java.util.List;
-
-import com.inna.sinai.web.bean.vo.dto.Authority;
-import com.inna.sinai.web.bean.vo.dto.Profile;
-import com.inna.sinai.web.bean.vo.dto.User;
 
 public class Session {
 	

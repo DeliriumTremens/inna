@@ -5,11 +5,11 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.inna.sinai.web.bean.vo.MasterUser;
-import com.inna.sinai.web.bean.vo.dto.Profile;
-import com.inna.sinai.web.bean.vo.dto.User;
-import com.inna.sinai.web.bean.vo.dto.UserAdditionalInformation;
-import com.inna.sinai.web.bean.vo.dto.UserCredential;
+import com.inna.sinai.web.vo.MasterUser;
+import com.inna.sinai.web.vo.Profile;
+import com.inna.sinai.web.vo.User;
+import com.inna.sinai.web.vo.UserAdditionalInformation;
+import com.inna.sinai.web.vo.UserCredential;
 
 public class MasterUserMapper implements RowMapper {
 

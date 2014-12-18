@@ -3,7 +3,7 @@ package com.inna.sinai.web.service.admin;
 import java.util.List;
 
 import com.inna.sinai.common.exception.core.SystemException;
-import com.inna.sinai.web.bean.vo.MasterUser;
+import com.inna.sinai.web.vo.MasterUser;
 
 
 public interface UserAdminService {

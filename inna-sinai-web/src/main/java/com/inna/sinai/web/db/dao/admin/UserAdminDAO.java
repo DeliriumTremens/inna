@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.inna.sinai.web.bean.vo.MasterUser;
+import com.inna.sinai.web.vo.MasterUser;
 
 public interface UserAdminDAO {
 	

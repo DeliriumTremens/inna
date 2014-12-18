@@ -8,7 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.inna.sinai.web.bean.vo.dto.UserCredential;
+import com.inna.sinai.web.vo.UserCredential;
 import com.inna.sinai.web.service.security.LoginService;
 import com.inna.sinai.web.view.controller.CommonController;
 

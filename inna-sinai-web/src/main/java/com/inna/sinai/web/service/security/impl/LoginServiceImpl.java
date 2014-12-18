@@ -6,13 +6,13 @@ import java.util.List;
 
 import com.inna.sinai.common.service.AbstractService;
 import com.inna.sinai.common.service.core.EncryptionService;
-import com.inna.sinai.web.bean.vo.MasterModule;
-import com.inna.sinai.web.bean.vo.Session;
-import com.inna.sinai.web.bean.vo.dto.Authority;
-import com.inna.sinai.web.bean.vo.dto.Module;
-import com.inna.sinai.web.bean.vo.dto.Profile;
-import com.inna.sinai.web.bean.vo.dto.User;
-import com.inna.sinai.web.bean.vo.dto.UserCredential;
+import com.inna.sinai.web.vo.MasterModule;
+import com.inna.sinai.web.vo.Session;
+import com.inna.sinai.web.vo.Authority;
+import com.inna.sinai.web.vo.Module;
+import com.inna.sinai.web.vo.Profile;
+import com.inna.sinai.web.vo.User;
+import com.inna.sinai.web.vo.UserCredential;
 import com.inna.sinai.web.db.dao.security.LoginDAO;
 import com.inna.sinai.web.service.security.LoginService;
 

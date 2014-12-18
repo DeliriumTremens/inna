@@ -1,10 +1,7 @@
-package com.inna.sinai.web.bean.vo;
+package com.inna.sinai.web.vo;
 
 import com.inna.sinai.common.bean.AbstractBean;
-import com.inna.sinai.web.bean.vo.dto.Profile;
-import com.inna.sinai.web.bean.vo.dto.User;
-import com.inna.sinai.web.bean.vo.dto.UserAdditionalInformation;
-import com.inna.sinai.web.bean.vo.dto.UserCredential;
+
 
 public class MasterUser extends AbstractBean {
 	

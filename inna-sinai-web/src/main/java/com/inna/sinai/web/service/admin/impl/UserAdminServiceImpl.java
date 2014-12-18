@@ -7,7 +7,7 @@ import com.inna.sinai.common.exception.core.SystemException;
 import com.inna.sinai.common.service.AbstractService;
 import com.inna.sinai.common.service.core.EncryptionService;
 import com.inna.sinai.common.util.Utilities;
-import com.inna.sinai.web.bean.vo.MasterUser;
+import com.inna.sinai.web.vo.MasterUser;
 import com.inna.sinai.web.db.dao.admin.UserAdminDAO;
 import com.inna.sinai.web.service.admin.UserAdminService;
 

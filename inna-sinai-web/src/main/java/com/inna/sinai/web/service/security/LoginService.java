@@ -1,7 +1,7 @@
 package com.inna.sinai.web.service.security;
 
-import com.inna.sinai.web.bean.vo.Session;
-import com.inna.sinai.web.bean.vo.dto.UserCredential;
+import com.inna.sinai.web.vo.Session;
+import com.inna.sinai.web.vo.UserCredential;
 
 public interface LoginService {
 	

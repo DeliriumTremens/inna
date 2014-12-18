@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.inna.sinai.common.exception.core.SystemException;
-import com.inna.sinai.web.bean.vo.MasterUser;
+import com.inna.sinai.web.vo.MasterUser;
 import com.inna.sinai.web.service.admin.UserAdminService;
 import com.inna.sinai.web.view.controller.CommonController;
 

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.inna.sinai.web.bean.vo.ReportSearch;
+import com.inna.sinai.web.vo.ReportSearch;
 import com.inna.sinai.web.view.controller.CommonController;
 
 @Controller

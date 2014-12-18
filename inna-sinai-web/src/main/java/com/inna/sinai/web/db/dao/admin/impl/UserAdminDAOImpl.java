@@ -6,12 +6,12 @@ import java.util.List;
 import org.springframework.dao.EmptyResultDataAccessException;
 
 import com.inna.sinai.common.dao.AbstractDAO;
-import com.inna.sinai.web.bean.vo.MasterUser;
-import com.inna.sinai.web.bean.vo.dto.Profile;
-import com.inna.sinai.web.bean.vo.dto.User;
-import com.inna.sinai.web.bean.vo.dto.UserAdditionalInformation;
-import com.inna.sinai.web.bean.vo.dto.UserCredential;
-import com.inna.sinai.web.bean.vo.dto.UserProfile;
+import com.inna.sinai.web.vo.MasterUser;
+import com.inna.sinai.web.vo.Profile;
+import com.inna.sinai.web.vo.User;
+import com.inna.sinai.web.vo.UserAdditionalInformation;
+import com.inna.sinai.web.vo.UserCredential;
+import com.inna.sinai.web.vo.UserProfile;
 import com.inna.sinai.web.db.dao.admin.UserAdminDAO;
 import com.inna.sinai.web.db.mapper.MasterUserMapper;
 

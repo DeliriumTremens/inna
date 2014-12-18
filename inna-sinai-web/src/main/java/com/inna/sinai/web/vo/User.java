@@ -1,4 +1,4 @@
-package com.inna.sinai.web.bean.vo.dto;
+package com.inna.sinai.web.vo;
 
 import com.inna.sinai.common.bean.AbstractBean;
 
