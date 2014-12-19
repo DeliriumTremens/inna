@@ -30,7 +30,7 @@
   <body>
    <div class="container">
     <div  style='padding: 170px 0 0 0px;width:60%;font: bold 12px "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif"' class="messageArea"></div>
-    <div style="padding: 10px 0 0 380px;">
+    <div style="padding: 10px 0 0 250px;">
     <form:form modelAttribute="userCredential" id="signupForm" cssClass="validableForm" action="singUp.do">
       <div id="login-box">
          <h2>Inna</h2>Sistema Integral de Administración
@@ -38,7 +38,7 @@
          <table>
               <tr>
                  <td>
-                    <div id="login-box-name" style="margin-top:20px;">Usuario:</div>
+                    <div id="login-box-name" style="margin-top:20px;color: blue;">Usuario:</div>
                  </td>
                  <td>
                    <div id="login-box-field" style="margin-top:20px;">
@@ -48,7 +48,7 @@
               </tr>
               <tr>
                  <td>
-                   <div id="login-box-name" style="margin-top:10px;">Password:</div>
+                   <div id="login-box-name" style="margin-top:10px;color: blue;">Password:</div>
                  </td>
                  <td>
                    <div id="login-box-field" style="margin-top:10px;">
@@ -58,7 +58,7 @@
               </tr>
               <tr>
                  <td colspan="2">
-                    <input style="float:right" type="submit" style="margin-left:90px;" value="Entrar"/>
+                    <button class="button styledButton" style="float:right;margin-left:90px;" type="submit" >Entrar</button>
                  </td>
               </tr>
          </table>

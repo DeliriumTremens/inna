@@ -17,8 +17,6 @@ public class Contract {
   private String promotionDescription;
   private Integer salesForceId;
   private String salesForceDescription;
-  private Integer productId;
-  private String productDescription;
   private Integer activationPlaceId;
   private String activationPlaceDescription;
   private Integer prospectionPlaceId;
@@ -112,18 +110,6 @@ public class Contract {
   }
   public void setSalesForceDescription(String salesForceDescription) {
 	this.salesForceDescription = salesForceDescription;
-  }
-  public Integer getProductId() {
-	return productId;
-  }
-  public void setProductId(Integer productId) {
-	this.productId = productId;
-  }
-  public String getProductDescription() {
-	return productDescription;
-  }
-  public void setProductDescription(String productDescription) {
-	this.productDescription = productDescription;
   }
   public Integer getActivationPlaceId() {
 	return activationPlaceId;
