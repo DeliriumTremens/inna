@@ -81,7 +81,7 @@
       </form:form>
   </div>
   <div id="result" class="result">
-     <%@ include file="/jsp/admin/user/_userTable.jsp"%>
+     <%@ include file="./_userTable.jsp"%>
   </div>
   <div >
     <table class="fullWidthTable">

@@ -58,4 +58,9 @@ public class CatalogTemplateServiceImpl extends AbstractService
 	return templates.get(name);
   }
 
+  @Override
+  public List<CatalogTemplate> searchByIds(Integer[] ids, String name) {
+	return dao.searchByIds(ids, templates.get(name).getTarget());
+  }
+
 }

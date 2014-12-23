@@ -53,13 +53,19 @@
              <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
                <property name="name" value="secProfiles"/>
                <property name="target" value="CAT_SEC_PROFILES"/>
-               <property name="text" value="Perfiles"/>
              </bean>
              
              <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
                <property name="name" value="secEmployeeRol"/>
                <property name="target" value="CAT_SEC_EMPLOYEE_ROL"/>
-               <property name="text" value="Puestos"/>
+             </bean>
+             <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
+               <property name="name" value="opContractStatus"/>
+               <property name="target" value="CAT_OP_CONTRACT_STATUS"/>
+             </bean>
+             <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
+               <property name="name" value="opJobZones"/>
+               <property name="target" value="CAT_OP_JOB_ZONE"/>
              </bean>
            </list>
          </property>

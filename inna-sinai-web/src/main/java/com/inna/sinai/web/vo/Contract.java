@@ -1,6 +1,7 @@
 package com.inna.sinai.web.vo;
 
 import java.util.Date;
+import java.util.List;
 
 public class Contract {
 	
@@ -27,11 +28,13 @@ public class Contract {
   private String contract;
   private String clientName;
   private Date openedDate;
+  private Date endOpenedDate;
   private Date closedDate;
   private Date prospectDate;
   private Date activationDate;
   private String comments;
   private String sellerName;
+  private List<WorkTeam> workTeam;
   
   public Integer getId() {
 	return id;
@@ -200,6 +203,18 @@ public class Contract {
   }
   public void setSellerName(String sellerName) {
 	this.sellerName = sellerName;
+  }
+  public Date getEndOpenedDate() {
+	return endOpenedDate;
+  }
+  public void setEndOpenedDate(Date endOpenedDate) {
+	this.endOpenedDate = endOpenedDate;
+  }
+  public List<WorkTeam> getWorkTeam() {
+	return workTeam;
+  }
+  public void setWorkTeam(List<WorkTeam> workTeam) {
+	this.workTeam = workTeam;
   }
   
 }

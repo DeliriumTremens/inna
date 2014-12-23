@@ -8,6 +8,7 @@ public interface CatalogTemplateDAO {
 	
   public List<CatalogTemplate> getAll(String targetName);
   public List<CatalogTemplate> search(CatalogTemplate toSearch, String targetName);
+  public List<CatalogTemplate> searchByIds(Integer[] ids, String targetName);
   public void insert(CatalogTemplate row, String targetName);
   public void delete(Integer rowId, String targetName);
   public void update(CatalogTemplate row, String targetName);

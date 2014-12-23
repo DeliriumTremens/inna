@@ -22,6 +22,15 @@ public class CatalogTemplateDAOImpl extends AbstractDAO
 	return (CatalogTemplate) getJdbcTemplate().queryForObject(sqlQuery
 			 , new Object[]{id}, getMapperFor(CatalogTemplate.class));
   }
+  public List<CatalogTemplate> searchByIds(Integer[] ids, String targetName){
+	StringBuilder sqlQuery = new StringBuilder("SELECT * FROM " + targetName + " WHERE ID IN (");
+	for(int i = 0; i < ids.length; i++){
+	  sqlQuery.append("?,");
+	}
+	sqlQuery.deleteCharAt(sqlQuery.length()-1).append(")");
+	return (List<CatalogTemplate>) getJdbcTemplate().query(sqlQuery.toString()
+			                      , ids, getMapperFor(CatalogTemplate.class));
+  }
   
   public List<CatalogTemplate> search(CatalogTemplate toSearch, String targetName) {
 	String sqlQuery = "SELECT * FROM " + targetName;
