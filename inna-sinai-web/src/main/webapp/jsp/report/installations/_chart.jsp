@@ -74,10 +74,10 @@ $(document).ready(function() {
 		</li>
 	</ul>
 	<div id="chart1">
-		<div id="zones" style="width: 900px; height: 350px;"></div>
+		<div id="zones" style="width: 95%; height: 350px;"></div>
 	</div>
-	<div id="chart2" style="width: 900px; height: 350px;">
-		<div id="installers" style="width: 900px; height: 350px;"></div>
+	<div id="chart2">
+		<div id="installers" style="width: 95%; height: 350px;"></div>
 	</div>
 </div>
 
