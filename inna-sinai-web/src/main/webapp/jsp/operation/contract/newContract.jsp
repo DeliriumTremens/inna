@@ -8,7 +8,7 @@
 </script>
 
 <div id="pageContent" class="pageContent">
-  <div id ="pageTitle" class="pageTitle">Contratos</div>
+  <div id ="pageTitle" class="pageTitle">Nuevo Contrato</div>
   <div class="messageArea"></div>
   <div id="searchArea" class="searchArea">
      <form:form modelAttribute="toSearch" id="searchForm" target="ajax:result" action="operation/seach.do" cssClass="validableForm">
@@ -50,12 +50,10 @@
      <%@ include file="./_contractTable.jsp"%>
   </div>
   <div >
-     <form:form id="newForm" action="operation/contract/setupCreate.do" cssClass="validableForm">
-        <table class="fullWidthTable">
+    <table class="fullWidthTable">
           <tr>
-             <td align="right"><button class="button styledButton" type="submit">Nuevo</button></td>
+             <td align="right"><button class="button styledButton" type="button" onclick="showCreate()">Nuevo</button></td>
           </tr>
-        </table>
-    </form:form>
+    </table>
   </div>
 </div>

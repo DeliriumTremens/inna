@@ -20,5 +20,13 @@ public class ContractController extends CommonController {
 			                            .getUser().getBusinessUnitId())); 
 	return "operation/contract/searchContract";
   }
+  
+  @RequestMapping("/setupCreate.do")
+  public String  setupCreate(ModelMap model, @ModelAttribute Session session) {
+	model.put("newRow", new Contract());
+	model.addAttribute("jobZones", jzService.searchByBusinessUnit(session
+                                        .getUser().getBusinessUnitId())); 
+    return "operation/contract/newContract";
+  }
 
 }
