@@ -24,8 +24,15 @@
                   <td align="left" class="label">Nombre</td>
                </tr>
                <tr>
+                 <td>
+                    <form:select path="businessUnitId" id="businessUnit" cssClass="fullWidthSelect">
+                       <form:option value="">SELECCIONE</form:option>
+                       <form:options items="${businessUnits}"  
+                             itemValue="id"
+                             itemLabel="name"/>
+                    </form:select>
+                 </td>
                  <td><form:input path="name" style="width:97%" /></td>
-                 <td><form:input path="businessUnitId" style="width:97%" /></td>
                </tr>
               <tr>
                  <td colspan="3" align="right">

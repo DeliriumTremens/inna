@@ -71,7 +71,7 @@
          </property>
       </bean>
       
-      <bean id="jobZoneService" class="com.inna.sinai.common.service.core.impl.JobZoneServiceImpl">
+      <bean id="jobZoneService" class="com.inna.sinai.web.service.catalog.impl.JobZoneServiceImpl">
          <property name="dao" ref="jobZoneDAO"/>
       </bean>
       

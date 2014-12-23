@@ -16,9 +16,14 @@ public class JobZoneController extends CommonController {
 	
   private JobZoneService service;
   
+  public void setService(JobZoneService service) {
+	this.service = service;
+  }
+
   @RequestMapping("/setup.do")
   public String  setup(ModelMap model){
 	model.put("toSearch", new JobZone());
+	model.addAttribute("businessUnits", ctService.getAll("glBusinessUnit")); 
 	return "catalog/jobZones/jobZones";
   }
   
@@ -31,6 +36,7 @@ public class JobZoneController extends CommonController {
   @RequestMapping("/setupCreate.do")
   public String  setupCreate(ModelMap model) {
     model.addAttribute("newRow", new JobZone());
+    model.addAttribute("businessUnits", ctService.getAll("glBusinessUnit")); 
     return "catalog/jobZones/_create";
   }
   
@@ -45,6 +51,7 @@ public class JobZoneController extends CommonController {
   @RequestMapping("/setupUpdate.do")
   public String  setupUpdate(ModelMap model, @RequestParam Integer id) {
     model.addAttribute("editRow", service.searchById(id));
+    model.addAttribute("businessUnits", ctService.getAll("glBusinessUnit")); 
     return "catalog/jobZones/_edit";
   }
   

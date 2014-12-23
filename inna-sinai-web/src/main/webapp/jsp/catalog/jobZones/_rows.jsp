@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
    function showEditForm(id){
-	 loadModalForm("catalog/template/setupUpdate.do",{id:id, templateName : '${config.name}'});
+	 loadModalForm("catalog/jobZones/setupUpdate.do",{id:id});
    }
 </script>
 

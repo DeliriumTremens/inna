@@ -20,16 +20,16 @@ public class JobZoneDAOImpl extends AbstractDAO  implements JobZoneDAO {
 			.append("WHERE COJZ.BUSINESS_UNIT_ID = CGBU.ID");
 	if(toSearch != null){
 	  if(toSearch.getId() != null && toSearch.getId() > 0) {
-		    sqlQuery.append(" AND ID = ? ");
+		    sqlQuery.append(" AND COJZ.ID = ? ");
 		    params.add(toSearch.getId());
 	  }
 	  if(toSearch.getName() != null && ! toSearch.getName().trim().equals("")) {
-	    sqlQuery.append(" AND NAME LIKE ? ");
+	    sqlQuery.append(" AND COJZ.NAME LIKE ? ");
 	    params.add("%" + toSearch.getName() + "%");
       }
 	  if(toSearch.getBusinessUnitId() != null && toSearch.getBusinessUnitId() > 0){
-		sqlQuery.append(" AND BUSINESS_UNIT_ID = ? ");
-		params.add(toSearch.getName());
+		sqlQuery.append(" AND COJZ.BUSINESS_UNIT_ID = ? ");
+		params.add(toSearch.getBusinessUnitId());
 	  }
 	}
 	return (List<JobZone>) getJdbcTemplate().query(sqlQuery.toString()

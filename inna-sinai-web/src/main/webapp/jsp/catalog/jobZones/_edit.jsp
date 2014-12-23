@@ -1,7 +1,6 @@
 <%@ include file="/jsp/layout/container/_pageHeaders.jsp"%>
-<form:form modelAttribute="editRow" id="modalFormEditRow" class="styledModalForm custom[width:570]" title="Editar" target="ajax:result" action="catalog/template/update.do">
+<form:form modelAttribute="editRow" id="modalFormEditRow" class="styledModalForm validableForm custom[width:570]" title="Editar" target="ajax:result" action="catalog/jobZones/update.do">
    <form:hidden path="id"/>
-   <input id="templateName" name="templateName" type="hidden" value="${config.name}"/>
    <table>
          <tr>
            <td align="left" class="label">Nombre<em>*</em></td>
@@ -10,6 +9,19 @@
         <tr>
            <td><form:input path="name" cssClass="littleInput validate[required]" /></td>
            <td><form:input path="description" cssClass="mediumInput validate[required]"/></td>
+        </tr>
+        <tr>
+           <td align="left" class="label">Unidad de Negocio<em>*</em></td>
+        </tr>
+        <tr>
+           <td>
+             <form:select path="businessUnitId" id="businessUnit" cssClass="validate[required] fullWidthSelect">
+               <form:option value="">SELECCIONE</form:option>
+               <form:options items="${businessUnits}"  
+                             itemValue="id"
+                             itemLabel="name"/>
+             </form:select>
+           </td>
         </tr>
        
         <tr height="50px">

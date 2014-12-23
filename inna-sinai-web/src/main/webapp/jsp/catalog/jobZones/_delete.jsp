@@ -2,8 +2,8 @@
 
 <script type="text/javascript">
    function removeRow(){
-	   actionConfirmed("catalog/template/delete.do","result"
-		  ,{rowIds:getSelectedRows("REGISTROS"), templateName : '${config.name}'}
+	   actionConfirmed("catalog/jobZones/delete.do","result"
+		  ,{rowIds:getSelectedRows("REGISTROS")}
 	      , "modalConfirmDelete");
    }
 </script>
