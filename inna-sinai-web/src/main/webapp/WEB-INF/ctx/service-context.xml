@@ -71,6 +71,10 @@
          </property>
       </bean>
       
+      <bean id="jobZoneService" class="com.inna.sinai.common.service.core.impl.JobZoneServiceImpl">
+         <property name="dao" ref="jobZoneDAO"/>
+      </bean>
+      
       <bean id="encryptionService" class="com.inna.sinai.common.service.core.impl.EncryptionServiceImpl">
          <property name="algorithm" value="SHA-1" />
        </bean>

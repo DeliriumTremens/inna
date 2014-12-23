@@ -36,6 +36,10 @@
    
    <bean id="catalogTemplateController" class="com.inna.sinai.web.view.controller.core.catalog.CatalogTemplateController" parent="commonController"/>
    
+   <bean id="jobZoneController" class="com.inna.sinai.web.view.controller.core.catalog.JobZoneController" parent="commonController">
+     <property name="service" ref="jobZoneService" />
+   </bean>
+   
    <bean class="com.inna.sinai.web.view.controller.core.security.LoginController" parent ="commonController">
       <property name="service" ref="loginService" />
    </bean>
