@@ -29,6 +29,7 @@
    
    <bean id="commonController" class="com.inna.sinai.web.view.controller.CommonController">
      <property name="ctService" ref="catalogoTemplateService" />
+     <property name="jzService" ref="jobZoneService" />
    </bean>
    
    <bean class="com.inna.sinai.common.controller.core.ErrorController"/>
@@ -36,9 +37,7 @@
    
    <bean id="catalogTemplateController" class="com.inna.sinai.web.view.controller.core.catalog.CatalogTemplateController" parent="commonController"/>
    
-   <bean id="jobZoneController" class="com.inna.sinai.web.view.controller.core.catalog.JobZoneController" parent="commonController">
-     <property name="service" ref="jobZoneService" />
-   </bean>
+   <bean id="jobZoneController" class="com.inna.sinai.web.view.controller.core.catalog.JobZoneController" parent="commonController"/>
    
    <bean class="com.inna.sinai.web.view.controller.core.security.LoginController" parent ="commonController">
       <property name="service" ref="loginService" />

@@ -20,6 +20,11 @@ public class JobZoneServiceImpl extends AbstractService implements JobZoneServic
   public List<JobZone> getAll() {
 	return dao.search(null);
   }
+  
+  @Override
+  public List<JobZone> searchByBusinessUnit(Integer businessUnitId) {
+	return dao.search(new JobZone(0, businessUnitId));
+  }
 
   @Override
   public JobZone searchById(Integer id) {

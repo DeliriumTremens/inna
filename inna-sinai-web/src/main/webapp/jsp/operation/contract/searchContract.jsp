@@ -1,5 +1,12 @@
 <%@ include file="/jsp/layout/container/_pageHeaders.jsp"%>
 
+ <script>
+     $(function() {
+       $( "#openedDate" ).datepicker();
+       $( "#endOpenedDate" ).datepicker();
+     });
+</script>
+
 <div id="pageContent" class="pageContent">
   <div id ="pageTitle" class="pageTitle">Contratos</div>
   <div class="messageArea"></div>
@@ -18,15 +25,15 @@
                <tr>
                   <td align="left" class="label">Fecha inicial</td>
                   <td align="left" class="label">Fecha Final</td>
-                  <td align="left" class="label">Estatus</td>
+                  <td align="left" class="label">Zona de Trabajo</td>
                </tr>
                <tr>
                  <td align="left"><form:input path="openedDate" style="width:94%" /></td>
                  <td align="left"><form:input path="endOpenedDate" style="width:94%" /></td>
                  <td align="left">
-                    <form:select path="statusId" id="statusId"  style="width:98%" >
+                    <form:select path="jobZoneId" id="jobZoneId"  style="width:98%" >
                        <form:option value="">SELECCIONE</form:option>
-                       <form:options items="${status}"  
+                       <form:options items="${jobZones}"  
                                itemValue="id"
                                itemLabel="name"/>
                     </form:select></td>

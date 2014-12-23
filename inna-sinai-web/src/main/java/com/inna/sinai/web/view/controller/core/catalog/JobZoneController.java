@@ -6,19 +6,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.inna.sinai.web.service.catalog.JobZoneService;
 import com.inna.sinai.web.view.controller.CommonController;
 import com.inna.sinai.web.vo.JobZone;
 
 @Controller
 @RequestMapping("catalog/jobZones")
 public class JobZoneController extends CommonController {
-	
-  private JobZoneService service;
-  
-  public void setService(JobZoneService service) {
-	this.service = service;
-  }
 
   @RequestMapping("/setup.do")
   public String  setup(ModelMap model){
@@ -29,7 +22,7 @@ public class JobZoneController extends CommonController {
   
   @RequestMapping("/seach.do")
   public String  search(ModelMap model, @ModelAttribute("toSearch") JobZone toSearch) {
-    model.addAttribute("data", service.search(toSearch)); 
+    model.addAttribute("data", jzService.search(toSearch)); 
     return "catalog/jobZones/_rows";
   }
   
@@ -43,21 +36,21 @@ public class JobZoneController extends CommonController {
   @RequestMapping("/create.do")
   public String  create(ModelMap model
 		             , @ModelAttribute("newRow") JobZone newRow) {
-	  service.insert(newRow);
+	jzService.insert(newRow);
 	model.addAttribute("infMessage", "msg.insertOK");
 	return search(model, newRow);
   }
   
   @RequestMapping("/setupUpdate.do")
   public String  setupUpdate(ModelMap model, @RequestParam Integer id) {
-    model.addAttribute("editRow", service.searchById(id));
+    model.addAttribute("editRow", jzService.searchById(id));
     model.addAttribute("businessUnits", ctService.getAll("glBusinessUnit")); 
     return "catalog/jobZones/_edit";
   }
   
   @RequestMapping("/update.do")
   public String  update(ModelMap model, @ModelAttribute("editRow") JobZone editRow) {
-	service.update(editRow);
+	jzService.update(editRow);
 	model.addAttribute("infMessage", "msg.updateOK");
     return search(model, editRow);
   }
@@ -69,7 +62,7 @@ public class JobZoneController extends CommonController {
   
   @RequestMapping("/delete.do")
   public String  delete(@RequestParam String rowIds, ModelMap model) {
-    service.delete(rowIds);
+	jzService.delete(rowIds);
 	model.addAttribute("infMessage", "msg.deleteOK");
 	return search(model, null);
   }

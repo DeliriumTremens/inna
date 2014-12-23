@@ -15,6 +15,11 @@ public class JobZone {
 	  this.id = id;
 	}
 	
+	public JobZone(Integer id, Integer businessUnitId){
+	  this.id = id;
+	  this.businessUnitId = businessUnitId;
+	}
+	
 	public Integer getId() {
 		return id;
 	}

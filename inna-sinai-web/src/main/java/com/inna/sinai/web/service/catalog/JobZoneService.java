@@ -12,5 +12,6 @@ public interface JobZoneService {
   public void insert(JobZone row);
   public void delete(String rowIds);
   public void update(JobZone row);
+  public List<JobZone> searchByBusinessUnit(Integer businessUnitId);
 
 }
