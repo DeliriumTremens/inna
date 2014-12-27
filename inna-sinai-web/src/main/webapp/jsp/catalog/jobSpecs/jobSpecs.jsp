@@ -20,19 +20,13 @@
      <form:form modelAttribute="toSearch" id="searchForm" target="ajax:result" action="catalog/jobSpecs/seach.do" cssClass="validableForm">
          <table class="fullWidthTable">
               <tr>
-                  <td align="left" class="label">Unidad de Negocio</td>
-                  <td align="left" class="label">Nombre</td>
+                  <td align="left" class="label">Nombre</td>    
                </tr>
                <tr>
-                 <td>
-                    <form:select path="businessUnitId" id="businessUnit" cssClass="fullWidthSelect">
-                       <form:option value="">SELECCIONE</form:option>
-                       <form:options items="${businessUnits}"  
-                             itemValue="id"
-                             itemLabel="name"/>
-                    </form:select>
-                 </td>
                  <td><form:input path="name" style="width:97%" /></td>
+               </tr>
+               <tr>
+                  <td align="left" class="label">Solo inactivos: <form:checkbox path="isActive"></form:checkbox></td>    
                </tr>
               <tr>
                  <td colspan="3" align="right">

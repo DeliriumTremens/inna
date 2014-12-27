@@ -13,10 +13,11 @@
         <input type="checkbox"/>
       </th> 
       <th width="3%">ID</th> 
-      <th width="15%">UNIDAD DE NEGOCIO</th> 
-	  <th width="30%">NOMBRE</th> 
-	  <th width="40%">DESCRIPCION</th>
-	  <th width="10%">COSTO</th>
+	  <th width="20%">NOMBRE</th> 
+	  <th width="25%">DESCRIPCION</th>
+	  <th width="20%">COSTO INSTALACION</th>
+	  <th width="20%">COSTO TRANSFERENCIA</th>
+	  <th width="13%">ACTIVO</th>
 	  <th width="2%"></th>
    </tr> 
   </thead> 
@@ -25,10 +26,11 @@
       <tr>
         <td><input type="checkbox" value ="${row.id}"/></td>
         <td>${row.id}</td>
-        <td>${row.businessUnitDescription}</td>
 		<td>${row.name}</td>
 		<td>${row.description}</td>
-		<td>${row.cost}</td>
+		<td>${row.jobCost}</td>
+		<td>${row.transferCost}</td>
+		<td>${row.isActive}</td>
 		<td><span class="ui-icon ui-icon-pencil" onclick="showEditForm('${row.id}');" style="float:left"></span></td>
 	  </tr>
     </c:forEach>
