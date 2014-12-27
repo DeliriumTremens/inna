@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
    function showEditForm(id){
-	 loadModalForm("catalog/jobZones/setupUpdate.do",{id:id});
+	 loadModalForm("catalog/promotion/setupUpdate.do",{id:id});
    }
 </script>
 
@@ -13,9 +13,10 @@
         <input type="checkbox"/>
       </th> 
       <th width="3%">ID</th> 
-      <th width="20%">UNIDAD DE NEGOCIO</th> 
-	  <th width="20%">NOMBRE</th> 
-	  <th width="55%">DESCRIPCION</th>
+	  <th width="30%">NOMBRE</th> 
+	  <th width="40%">DESCRIPCION</th>
+	  <th width="15%">COST</th>
+	  <th width="10%">IS_ACTIVE</th>
 	  <th width="2%"></th>
    </tr> 
   </thead> 
@@ -23,10 +24,10 @@
     <c:forEach items="${data}" var="row">
       <tr>
         <td><input type="checkbox" value ="${row.id}"/></td>
-		<td>${row.id}</td>
-		<td>${row.businessUnitDescription}</td>
 		<td>${row.name}</td>
 		<td>${row.description}</td>
+		<td>${row.cost}</td>
+		<td>${row.isActive}</td>
 		<td><span class="ui-icon ui-icon-pencil" onclick="showEditForm('${row.id}');" style="float:left"></span></td>
 	  </tr>
     </c:forEach>

@@ -1,18 +1,17 @@
 package com.inna.sinai.web.vo;
 
-public class JobSpec {
+public class Promotion {
 
   private Integer id;
-  private Integer unitBusinessId;
-  private Integer unitBusinessDescription;
   private String name;
   private String description;
+  private boolean isActive;
   private Float cost;
   
-  public JobSpec(){
+  public Promotion(){
   }
   
-  public JobSpec(Integer id){
+  public Promotion(Integer id){
 	this.id = id;
   }
   public Integer getId() {
@@ -40,20 +39,12 @@ public class JobSpec {
 	this.cost = cost;
   }
 
-  public Integer getUnitBusinessId() {
-	return unitBusinessId;
+  public boolean isActive() {
+	return isActive;
   }
 
-  public void setUnitBusinessId(Integer unitBusinessId) {
-	this.unitBusinessId = unitBusinessId;
-  }
-
-  public Integer getUnitBusinessDescription() {
-	return unitBusinessDescription;
-  }
-
-  public void setUnitBusinessDescription(Integer unitBusinessDescription) {
-	this.unitBusinessDescription = unitBusinessDescription;
+  public void setActive(boolean isActive) {
+	this.isActive = isActive;
   }
 	
 }

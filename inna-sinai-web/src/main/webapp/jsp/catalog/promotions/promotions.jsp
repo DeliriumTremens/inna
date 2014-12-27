@@ -3,12 +3,12 @@
 <script type="text/javascript">
   function showDelete(){
     if(getSelectedRows("REGISTROS") != ""){
-	  loadModalConfirmation("catalog/jobCost/setupDelete.do");
+	  loadModalConfirmation("catalog/promotions/setupDelete.do");
 	}
   }
    
    function showCreate(){
-	   loadModalForm("catalog/jobCost/setupCreate.do");
+	   loadModalForm("catalog/promotions/setupCreate.do");
    }
    
    </script>
@@ -17,13 +17,17 @@
   <div id ="pageTitle" class="pageTitle">Costos</div>
   <div class="messageArea"></div>
   <div id="searchArea" class="searchArea">
-     <form:form modelAttribute="toSearch" id="searchForm" target="ajax:result" action="catalog/jobCost/seach.do" cssClass="validableForm">
+     <form:form modelAttribute="toSearch" id="searchForm" target="ajax:result" action="catalog/promotions/seach.do" cssClass="validableForm">
          <table class="fullWidthTable">
                <tr>
-                  <td align="left" class="label">Nombre</td>
+                  <td align="left" class="label" colspan="2">Nombre</td>
                </tr>
                <tr>
                  <td><form:input path="name" style="width:97%" /></td>
+               </tr>
+               <tr>
+                  <td align="left" class="label">Activa: </td>
+                  <td><form:checkbox path="isActive"></form:checkbox></td>
                </tr>
               <tr>
                  <td colspan="3" align="right">

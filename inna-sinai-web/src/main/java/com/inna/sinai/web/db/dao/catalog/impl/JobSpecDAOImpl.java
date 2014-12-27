@@ -15,15 +15,19 @@ public class JobSpecDAOImpl extends AbstractDAO implements JobSpecDAO {
 	StringBuilder sqlQuery = new StringBuilder();
 	List<Object> params = new ArrayList<Object>();
 	sqlQuery.append("SELECT COJS.ID ID ,COJS.NAME NAME")
-		    .append("    , COJS.DESCRIPTION DESCRIPTION, COJS.COST ")
+		    .append("    , COJS.DESCRIPTION DESCRIPTION, COJS.COST COST ")
 			.append("FROM CAT_OP_JOB_SPEC COJS");
 	if(toSearch != null){
 	  if(toSearch.getId() != null && toSearch.getId() > 0) {
-	    sqlQuery.append(" AND COJS.ID = ? ");
+	    sqlQuery.append(" WHERE COJS.ID = ? ");
 	    params.add(toSearch.getId());
 	  }
 	  if(toSearch.getName() != null && ! toSearch.getName().trim().equals("")) {
-		 sqlQuery.append(" AND COJZ.NAME LIKE ? ");
+		 if(params.size() > 0){
+		   sqlQuery.append(" AND COJS.NAME LIKE ? ");
+		 } else {
+			 sqlQuery.append(" WHERE COJS.NAME LIKE ? ");
+		 }
 		 params.add("%" + toSearch.getName() + "%");
 	  }
 	}
@@ -44,7 +48,7 @@ public class JobSpecDAOImpl extends AbstractDAO implements JobSpecDAO {
   }
 			  
   public void update(JobSpec row){
-    String sqlQuery = "UPDATE CAT_OP_JOB_ZONE SET NAME = ?, DESCRIPTION = ? "
+    String sqlQuery = "UPDATE CAT_OP_JOB_SPEC SET NAME = ?, DESCRIPTION = ? "
 					+ "                                   , COST = ? "
 					+ "WHERE ID = ?";
 	getJdbcTemplate().update(sqlQuery, new Object[]{row.getName()
