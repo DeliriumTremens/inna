@@ -16,6 +16,7 @@ public class JobSpecController extends CommonController{
   @RequestMapping("/setup.do")
   public String  setup(ModelMap model){
 	model.put("toSearch", new JobSpec());
+	model.addAttribute("businessUnits", ctService.getAll("glBusinessUnit")); 
 	return "catalog/jobSpecs/jobSpecs";
   }
 	  
@@ -28,6 +29,7 @@ public class JobSpecController extends CommonController{
   @RequestMapping("/setupCreate.do")
   public String  setupCreate(ModelMap model) {
 	model.addAttribute("newRow", new JobSpec());
+	model.addAttribute("businessUnits", ctService.getAll("glBusinessUnit")); 
 	return "catalog/jobSpecs/_create";
   }
 	  
@@ -41,6 +43,7 @@ public class JobSpecController extends CommonController{
   @RequestMapping("/setupUpdate.do")
   public String  setupUpdate(ModelMap model, @RequestParam Integer id) {
 	model.addAttribute("editRow", jsService.searchById(id));
+	model.addAttribute("businessUnits", ctService.getAll("glBusinessUnit")); 
 	return "catalog/jobSpecs/_edit";
   }
 	  

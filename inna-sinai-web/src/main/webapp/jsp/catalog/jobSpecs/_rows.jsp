@@ -13,9 +13,10 @@
         <input type="checkbox"/>
       </th> 
       <th width="3%">ID</th> 
-	  <th width="35%">NOMBRE</th> 
-	  <th width="45%">DESCRIPCION</th>
-	  <th width="15%">COSTO</th>
+      <th width="15%">UNIDAD DE NEGOCIO</th> 
+	  <th width="30%">NOMBRE</th> 
+	  <th width="40%">DESCRIPCION</th>
+	  <th width="10%">COSTO</th>
 	  <th width="2%"></th>
    </tr> 
   </thead> 
@@ -24,6 +25,7 @@
       <tr>
         <td><input type="checkbox" value ="${row.id}"/></td>
         <td>${row.id}</td>
+        <td>${row.businessUnitDescription}</td>
 		<td>${row.name}</td>
 		<td>${row.description}</td>
 		<td>${row.cost}</td>

@@ -3,8 +3,8 @@ package com.inna.sinai.web.vo;
 public class JobSpec {
 
   private Integer id;
-  private Integer unitBusinessId;
-  private Integer unitBusinessDescription;
+  private Integer businessUnitId;
+  private String businessUnitDescription;
   private String name;
   private String description;
   private Float cost;
@@ -39,21 +39,17 @@ public class JobSpec {
   public void setCost(Float cost) {
 	this.cost = cost;
   }
-
-  public Integer getUnitBusinessId() {
-	return unitBusinessId;
+  public Integer getBusinessUnitId() {
+	return businessUnitId;
+  }
+  public void setBusinessUnitId(Integer businessUnitId) {
+	this.businessUnitId = businessUnitId;
+  }
+  public String getBusinessUnitDescription() {
+	return businessUnitDescription;
+  }
+  public void setBusinessUnitDescription(String businessUnitDescription) {
+	this.businessUnitDescription = businessUnitDescription;
   }
 
-  public void setUnitBusinessId(Integer unitBusinessId) {
-	this.unitBusinessId = unitBusinessId;
-  }
-
-  public Integer getUnitBusinessDescription() {
-	return unitBusinessDescription;
-  }
-
-  public void setUnitBusinessDescription(Integer unitBusinessDescription) {
-	this.unitBusinessDescription = unitBusinessDescription;
-  }
-	
 }

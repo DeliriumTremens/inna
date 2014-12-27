@@ -11,10 +11,19 @@
            <td><form:input path="description" cssClass="mediumInput validate[required]"/></td>
         </tr>
         <tr>
+           <td align="left" class="label">Unidad de Negocio<em>*</em></td>
            <td align="left" class="label">Costo<em>*</em></td>
         </tr>
         <tr>
-           <td><form:input path="cost" cssClass="littleInput validate[required]" /></td>
+           <td>
+             <form:select path="businessUnitId" id="businessUnit" cssClass="validate[required] fullWidthSelect">
+               <form:option value="">SELECCIONE</form:option>
+               <form:options items="${businessUnits}"  
+                             itemValue="id"
+                             itemLabel="name"/>
+             </form:select>
+            </td>
+           <td><form:input path="cost" cssClass="mediumInput validate[required]" /></td>
         </tr>
        
         <tr height="50px">
