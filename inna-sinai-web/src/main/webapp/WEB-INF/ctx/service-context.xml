@@ -79,10 +79,6 @@
          <property name="dao" ref="jobSpecDAO"/>
       </bean>
       
-      <bean id="promotionService" class="com.inna.sinai.web.service.catalog.impl.PromotionServiceImpl">
-         <property name="dao" ref="promotionDAO"/>
-      </bean>
-      
       <bean id="encryptionService" class="com.inna.sinai.common.service.core.impl.EncryptionServiceImpl">
          <property name="algorithm" value="SHA-1" />
        </bean>

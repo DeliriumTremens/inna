@@ -51,7 +51,6 @@
    
    <bean id="jobZoneController" class="com.inna.sinai.web.view.controller.core.catalog.JobZoneController" parent="commonController"/>
    <bean id="jobSpecController" class="com.inna.sinai.web.view.controller.core.catalog.JobSpecController" parent="commonController"/>
-   <bean id="promotionController" class="com.inna.sinai.web.view.controller.core.catalog.PromotionController" parent="commonController"/>
    <bean id="installationsReportController" class="com.inna.sinai.web.view.controller.core.reports.InstallationsReportController" parent="commonController"/>
    <bean id="globalReportController" class="com.inna.sinai.web.view.controller.core.reports.GlobalReportController" parent="commonController"/>
    <bean id="supervisionsReportController" class="com.inna.sinai.web.view.controller.core.reports.SupervisionReportController" parent="commonController"/>
