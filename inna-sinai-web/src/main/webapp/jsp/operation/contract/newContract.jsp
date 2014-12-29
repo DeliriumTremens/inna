@@ -1,59 +1,31 @@
 <%@ include file="/jsp/layout/container/_pageHeaders.jsp"%>
 
  <script>
-     $(function() {
-       $( "#openedDate" ).datepicker();
-       $( "#endOpenedDate" ).datepicker();
-     });
+
 </script>
 
 <div id="pageContent" class="pageContent">
   <div id ="pageTitle" class="pageTitle">Nuevo Contrato</div>
   <div class="messageArea"></div>
   <div id="searchArea" class="searchArea">
-     <form:form modelAttribute="toSearch" id="searchForm" target="ajax:result" action="operation/seach.do" cssClass="validableForm">
-         <form:hidden path="workTeam[0].typeId" value="1" />
+     <form:form modelAttribute="newRow" id="searchForm" action="operation/create.do" cssClass="validableForm">
          <table class="fullWidthTable">
                <tr>
-                  <td align="left" class="label" width="60%" colspan="2">Nombre de Técnico</td>
-                  <td align="left" class="label" >Número de contrato</td>
+                  <td align="left" class="label" >Numero de Contrato<em>*</em></td>
+                  <td align="left" class="label" >Número de cuenta</td>
+                  <td align="left" class="label" >Fecha de Captura<em>*</em></td>
                </tr>
                <tr>
-                 <td align="left" colspan="2"><form:input path="workTeam[0].toUserName" style="width:97%" /></td>
                  <td align="left"><form:input path="contract" style="width:97%" /></td>
-               </tr>
-               <tr>
-                  <td align="left" class="label">Fecha inicial</td>
-                  <td align="left" class="label">Fecha Final</td>
-                  <td align="left" class="label">Zona de Trabajo</td>
-               </tr>
-               <tr>
-                 <td align="left"><form:input path="openedDate" style="width:94%" /></td>
-                 <td align="left"><form:input path="endOpenedDate" style="width:94%" /></td>
-                 <td align="left">
-                    <form:select path="jobZoneId" id="jobZoneId"  style="width:98%" >
-                       <form:option value="">SELECCIONE</form:option>
-                       <form:options items="${jobZones}"  
-                               itemValue="id"
-                               itemLabel="name"/>
-                    </form:select></td>
+                 <td align="left"><form:input path="account" style="width:97%" /></td>
+                 <td align="left"><form:input path="openedDate" style="width:97%" readonly="true"/></td>
                </tr>
               <tr>
                  <td colspan="3" align="right">
-                    <button class="button styledButton" type="submit">Buscar</button>
+                    <button class="button styledButton" type="submit">Guardar</button>
                  </td>
               </tr>
          </table>
       </form:form>
-  </div>
-  <div id="result" class="result">
-     <%@ include file="./_contractTable.jsp"%>
-  </div>
-  <div >
-    <table class="fullWidthTable">
-          <tr>
-             <td align="right"><button class="button styledButton" type="button" onclick="showCreate()">Nuevo</button></td>
-          </tr>
-    </table>
   </div>
 </div>

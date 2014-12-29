@@ -5,6 +5,10 @@
        $( "#openedDate" ).datepicker();
        $( "#endOpenedDate" ).datepicker();
      });
+     
+     function showNew(){
+    	 loadContent("operation/contract/setupCreate.do");
+     }
 </script>
 
 <div id="pageContent" class="pageContent">
@@ -50,12 +54,10 @@
      <%@ include file="./_contractTable.jsp"%>
   </div>
   <div >
-     <form:form id="newForm" action="operation/contract/setupCreate.do" cssClass="validableForm">
         <table class="fullWidthTable">
           <tr>
-             <td align="right"><button class="button styledButton" type="submit">Nuevo</button></td>
+             <td align="right"><button class="button styledButton" onClick="showNew()">Nuevo</button></td>
           </tr>
         </table>
-    </form:form>
   </div>
 </div>
