@@ -28,6 +28,10 @@ public class ContractController extends CommonController {
 	Contract newContract = new Contract();
 	newContract.setOpenedDate(new Date());
 	model.put("newRow", newContract);
+	model.addAttribute("jobSpecs", jsService.getAll());
+	model.addAttribute("paymentTypes", ctService.getAll("opPaymentType"));
+	model.addAttribute("saleForces", ctService.getAll("opSalesForce"));
+	model.addAttribute("activityPlaces", ctService.getAll("opActivityPlaces"));
 	model.addAttribute("jobZones", jzService.searchByBusinessUnit(session
                                         .getUser().getBusinessUnitId())); 
     return "operation/contract/newContract";

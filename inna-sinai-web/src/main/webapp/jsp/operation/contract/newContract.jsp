@@ -20,6 +20,52 @@
                  <td align="left"><form:input path="account" style="width:97%" /></td>
                  <td align="left"><form:input path="openedDate" style="width:97%" readonly="true"/></td>
                </tr>
+               <tr>
+                  <td align="left" class="label" colspan="2">Nombre del cliente<em>*</em></td>
+                  <td align="left" class="label">Producto<em>*</em></td>
+               </tr>
+               <tr>
+                 <td align="left" colspan="2"><form:input path="clientName" style="width:97%" /></td>
+                 <td align="left">
+                   <form:select path="jobSpecId" id="jobSpecId"  style="width:98%" >
+                       <form:option value="">SELECCIONE</form:option>
+                       <form:options items="${jobSpecs}"  
+                               itemValue="id"
+                               itemLabel="name"/>
+                    </form:select>
+                 </td>
+               </tr>
+               <tr>
+                  <td align="left" class="label" >Fuerza de venta<em>*</em></td>
+                  <td align="left" class="label" >Lugar / Fecha de activación<em>*</em></td>
+                  <td align="left" class="label" >Lugar / Fecha de prospecto<em>*</em></td>
+               </tr>
+               <tr>
+                 <td align="left">
+                   <form:select path="salesForceId" id="salesForceId"  style="width:98%" >
+                       <form:option value="">SELECCIONE</form:option>
+                       <form:options items="${saleForces}"  
+                               itemValue="id"
+                               itemLabel="name"/>
+                    </form:select>
+                 </td>
+                 <td align="left">
+                   <form:select path="activationPlaceId" id="activationPlaceId"  style="width:65%" >
+                       <form:option value="">SELECCIONE</form:option>
+                       <form:options items="${activityPlaces}"  
+                               itemValue="id"
+                               itemLabel="name"/>
+                    </form:select> <form:input path="activationDate" id="activationDate" style="width:30%" />
+                 </td>
+                 <td align="left">
+                   <form:select path="prospectionPlaceId" id="prospectionPlaceId"  style="width:65%" >
+                       <form:option value="">SELECCIONE</form:option>
+                       <form:options items="${activityPlaces}"  
+                               itemValue="id"
+                               itemLabel="name"/>
+                    </form:select> <form:input path="prospectDate" id="prospectDate" style="width:30%" />
+                 </td>
+               </tr>
               <tr>
                  <td colspan="3" align="right">
                     <button class="button styledButton" type="submit">Guardar</button>

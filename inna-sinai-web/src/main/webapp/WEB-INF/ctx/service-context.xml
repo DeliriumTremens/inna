@@ -67,6 +67,18 @@
                <property name="name" value="opJobZones"/>
                <property name="target" value="CAT_OP_JOB_ZONE"/>
              </bean>
+             <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
+               <property name="name" value="opPaymentType"/>
+               <property name="target" value="CAT_OP_PAYMENT_TYPE"/>
+             </bean>
+             <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
+               <property name="name" value="opSalesForce"/>
+               <property name="target" value="CAT_OP_SALES_FORCE"/>
+             </bean>
+             <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
+               <property name="name" value="opActivityPlaces"/>
+               <property name="target" value="CAT_OP_ACTIVITY_PLACES"/>
+             </bean>
            </list>
          </property>
       </bean>
