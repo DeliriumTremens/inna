@@ -15,8 +15,7 @@ public class JobSpecDAOImpl extends AbstractDAO implements JobSpecDAO {
 	StringBuilder sqlQuery = new StringBuilder();
 	List<Object> params = new ArrayList<Object>();
 	sqlQuery.append("SELECT COJS.ID ID , COJS.NAME NAME, COJS.DESCRIPTION DESCRIPTION")
-		    .append("    , COJS.JOB_COST JOB_COST, COJS.TRANSFER_COST TRANSFER_COST ")
-		    .append("    , COJS.IS_ACTIVE IS_ACTIVE ")
+		    .append("    , COJS.JOB_COST JOB_COST, COJS.IS_ACTIVE IS_ACTIVE ")
 			.append("FROM CAT_OP_JOB_SPEC COJS");
 	if(toSearch != null){
 	  if(toSearch.getId() != null && toSearch.getId() > 0) {
@@ -45,10 +44,10 @@ public class JobSpecDAOImpl extends AbstractDAO implements JobSpecDAO {
   }
 			  
   public void insert(JobSpec row){
-	String sqlQuery = "INSERT INTO CAT_OP_JOB_SPEC(NAME, DESCRIPTION, JOB_COST, TRANSFER_COST) " 
-			    	+ "VALUES (?,?,?,?)";
+	String sqlQuery = "INSERT INTO CAT_OP_JOB_SPEC(NAME, DESCRIPTION, JOB_COST) " 
+			    	+ "VALUES (?,?,?)";
 	getJdbcTemplate().update(sqlQuery, new Object[]{row.getName()
-			   , row.getDescription(), row.getJobCost(), row.getTransferCost()});
+			   , row.getDescription(), row.getJobCost()});
   }
 			  
   public void delete(Integer rowId){
@@ -58,10 +57,10 @@ public class JobSpecDAOImpl extends AbstractDAO implements JobSpecDAO {
 			  
   public void update(JobSpec row){
     String sqlQuery = "UPDATE CAT_OP_JOB_SPEC SET NAME = ?, DESCRIPTION = ? "
-					+ "     , JOB_COST = ?, TRANSFER_COST = ?, IS_ACTIVE = ? "
+					+ "     , JOB_COST = ?, IS_ACTIVE = ? "
 					+ "WHERE ID = ?";
 	getJdbcTemplate().update(sqlQuery, new Object[]{row.getName(), row.getDescription()
-			, row.getJobCost(), row.getTransferCost(), row.getIsActive(), row.getId()});		  
+			, row.getJobCost(), row.getIsActive(), row.getId()});		  
   }
 
 

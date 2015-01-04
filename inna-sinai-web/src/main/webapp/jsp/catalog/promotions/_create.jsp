@@ -11,6 +11,7 @@
         </tr>
         <tr>
            <td align="left" class="label">Unidad de Negocio<em>*</em></td>
+           <td align="left" class="label">Costo de Instalacion<em>*</em></td>
         </tr>
         <tr>
            <td>
@@ -21,6 +22,10 @@
                              itemLabel="name"/>
              </form:select>
            </td>
+           <td><form:input path="installationCost" cssClass="mediumInput validate[required]"/></td>
+        </tr>
+        <tr>
+           <td align="left" class="label">Activo <em>*</em>: <form:checkbox path="isActive"></form:checkbox></td>
         </tr>
         
         <tr height="50px">

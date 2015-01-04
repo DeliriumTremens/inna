@@ -91,6 +91,18 @@
          <property name="dao" ref="jobSpecDAO"/>
       </bean>
       
+      <bean id="promotionService" class="com.inna.sinai.web.service.catalog.impl.PromotionServiceImpl">
+         <property name="dao" ref="promotionDAO"/>
+      </bean>
+      
+      <bean id="productService" class="com.inna.sinai.web.service.catalog.impl.ProductServiceImpl">
+         <property name="dao" ref="productDAO"/>
+      </bean>
+      
+      <bean id="inventoryTypeService" class="com.inna.sinai.web.service.catalog.impl.InventoryTypeServiceImpl">
+         <property name="dao" ref="inventoryTypeDAO"/>
+      </bean>
+      
       <bean id="encryptionService" class="com.inna.sinai.common.service.core.impl.EncryptionServiceImpl">
          <property name="algorithm" value="SHA-1" />
        </bean>

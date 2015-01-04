@@ -14,15 +14,24 @@
    </script>
 
 <div id="pageContent" class="pageContent">
-  <div id ="pageTitle" class="pageTitle">Costos</div>
+  <div id ="pageTitle" class="pageTitle">Promociones</div>
   <div class="messageArea"></div>
   <div id="searchArea" class="searchArea">
      <form:form modelAttribute="toSearch" id="searchForm" target="ajax:result" action="catalog/promotions/seach.do" cssClass="validableForm">
          <table class="fullWidthTable">
                <tr>
-                  <td align="left" class="label" colspan="2">Nombre</td>
+                  <td align="left" class="label">Unidad de Negocio</td>
+                  <td align="left" class="label">Nombre</td>
                </tr>
                <tr>
+                 <td>
+                    <form:select path="businessUnitId" id="businessUnit" cssClass="fullWidthSelect">
+                       <form:option value="">SELECCIONE</form:option>
+                       <form:options items="${businessUnits}"  
+                             itemValue="id"
+                             itemLabel="name"/>
+                    </form:select>
+                 </td>
                  <td><form:input path="name" style="width:97%" /></td>
                </tr>
                <tr>
