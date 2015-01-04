@@ -1,6 +1,5 @@
 package com.inna.sinai.web.view.controller.core.operation;
 
-import java.util.Date;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -25,9 +24,7 @@ public class ContractController extends CommonController {
   
   @RequestMapping("/setupCreate.do")
   public String  setupCreate(ModelMap model, @ModelAttribute Session session) {
-	Contract newContract = new Contract();
-	newContract.setOpenedDate(new Date());
-	model.put("newRow", newContract);
+	model.put("newRow", new Contract());
 	model.addAttribute("jobSpecs", jsService.getAll());
 	model.addAttribute("paymentTypes", ctService.getAll("opPaymentType"));
 	model.addAttribute("saleForces", ctService.getAll("opSalesForce"));
