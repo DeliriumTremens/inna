@@ -31,6 +31,9 @@
      <property name="ctService" ref="catalogoTemplateService" />
      <property name="jzService" ref="jobZoneService" />
      <property name="jsService" ref="jobSpecService" />
+     <property name="itService" ref="inventoryTypeService" />
+     <property name="pService" ref="productService" />
+     <property name="prService" ref="promotionService" />
    </bean>
    
    <bean class="com.inna.sinai.common.controller.core.ErrorController"/>
@@ -51,6 +54,9 @@
    
    <bean id="jobZoneController" class="com.inna.sinai.web.view.controller.core.catalog.JobZoneController" parent="commonController"/>
    <bean id="jobSpecController" class="com.inna.sinai.web.view.controller.core.catalog.JobSpecController" parent="commonController"/>
+   <bean id="productController" class="com.inna.sinai.web.view.controller.core.catalog.ProductController" parent="commonController"/>
+   <bean id="promotionController" class="com.inna.sinai.web.view.controller.core.catalog.PromotionController" parent="commonController"/>
+   <bean id="inventoryTypeController" class="com.inna.sinai.web.view.controller.core.catalog.InventoryTypeController" parent="commonController"/>
    <bean id="installationsReportController" class="com.inna.sinai.web.view.controller.core.reports.InstallationsReportController" parent="commonController"/>
    <bean id="globalReportController" class="com.inna.sinai.web.view.controller.core.reports.GlobalReportController" parent="commonController"/>
    <bean id="supervisionsReportController" class="com.inna.sinai.web.view.controller.core.reports.SupervisionReportController" parent="commonController"/>

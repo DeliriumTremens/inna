@@ -3,39 +3,27 @@
 <script type="text/javascript">
   function showDelete(){
     if(getSelectedRows("REGISTROS") != ""){
-	  loadModalConfirmation("catalog/promotions/setupDelete.do");
+	  loadModalConfirmation("catalog/inventoryTypes/setupDelete.do");
 	}
   }
    
    function showCreate(){
-	   loadModalForm("catalog/promotions/setupCreate.do");
+	   loadModalForm("catalog/inventoryTypes/setupCreate.do");
    }
    
    </script>
 
 <div id="pageContent" class="pageContent">
-  <div id ="pageTitle" class="pageTitle">Promociones</div>
+  <div id ="pageTitle" class="pageTitle">Tipo de Inventario</div>
   <div class="messageArea"></div>
   <div id="searchArea" class="searchArea">
-     <form:form modelAttribute="toSearch" id="searchForm" target="ajax:result" action="catalog/promotions/seach.do" cssClass="validableForm">
+     <form:form modelAttribute="toSearch" id="searchForm" target="ajax:result" action="catalog/inventoryTypes/seach.do" cssClass="validableForm">
          <table class="fullWidthTable">
                <tr>
                   <td align="left" class="label">Nombre</td>
-                  <td align="left" class="label">Unidad de Negocio</td>
                </tr>
                <tr>
                  <td><form:input path="name" style="width:97%" /></td>
-                 <td>
-                    <form:select path="businessUnitId" id="businessUnit" cssClass="fullWidthSelect">
-                       <form:option value="">SELECCIONE</form:option>
-                       <form:options items="${businessUnits}"  
-                             itemValue="id"
-                             itemLabel="name"/>
-                    </form:select>
-                 </td>
-               </tr>
-               <tr>
-                  <td align="left" class="label">Solo activos: <form:checkbox path="isActive"></form:checkbox></td>    
                </tr>
               <tr>
                  <td colspan="3" align="right">

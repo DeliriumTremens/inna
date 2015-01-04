@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
    function showEditForm(id){
-	 loadModalForm("catalog/promotions/setupUpdate.do",{id:id});
+	 loadModalForm("catalog/inventoryTypes/setupUpdate.do",{id:id});
    }
 </script>
 
@@ -13,11 +13,9 @@
         <input type="checkbox"/>
       </th> 
       <th width="3%">ID</th> 
-      <th width="20%">UNIDAD DE NEGOCIO</th> 
 	  <th width="20%">NOMBRE</th> 
 	  <th width="27%">DESCRIPCION</th>
-	  <th width="15%">COSTO DE INSTALACION</th>
-	  <th width="10%">ACTIVO</th>
+	  <th width="15%">COSTO</th>
 	  <th width="2%"></th>
    </tr> 
   </thead> 
@@ -26,11 +24,9 @@
       <tr>
         <td><input type="checkbox" value ="${row.id}"/></td>
         <td>${row.id}</td>
-        <td>${row.businessUnitName}</td>
 		<td>${row.name}</td>
 		<td>${row.description}</td>
-		<td>${row.installationCost}</td>
-		<td>${row.isActive}</td>
+		<td>${row.cost}</td>
 		<td><span class="ui-icon ui-icon-pencil" onclick="showEditForm('${row.id}');" style="float:left"></span></td>
 	  </tr>
     </c:forEach>

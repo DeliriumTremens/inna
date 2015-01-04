@@ -3,21 +3,21 @@
 <script type="text/javascript">
   function showDelete(){
     if(getSelectedRows("REGISTROS") != ""){
-	  loadModalConfirmation("catalog/promotions/setupDelete.do");
+	  loadModalConfirmation("catalog/products/setupDelete.do");
 	}
   }
    
    function showCreate(){
-	   loadModalForm("catalog/promotions/setupCreate.do");
+	   loadModalForm("catalog/products/setupCreate.do");
    }
    
    </script>
 
 <div id="pageContent" class="pageContent">
-  <div id ="pageTitle" class="pageTitle">Promociones</div>
+  <div id ="pageTitle" class="pageTitle">Productos</div>
   <div class="messageArea"></div>
   <div id="searchArea" class="searchArea">
-     <form:form modelAttribute="toSearch" id="searchForm" target="ajax:result" action="catalog/promotions/seach.do" cssClass="validableForm">
+     <form:form modelAttribute="toSearch" id="searchForm" target="ajax:result" action="catalog/products/seach.do" cssClass="validableForm">
          <table class="fullWidthTable">
                <tr>
                   <td align="left" class="label">Nombre</td>

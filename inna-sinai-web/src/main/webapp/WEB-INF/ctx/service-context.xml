@@ -39,11 +39,6 @@
                <property name="text" value="Causas de Reagendamiento"/>
              </bean>
              <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
-               <property name="name" value="stItemType"/>
-               <property name="target" value="CAT_ST_ITEM_TYPE"/>
-               <property name="text" value="Tipo de productos en Almacen"/>
-             </bean>
-             <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
                <property name="name" value="opSoSolutions"/>
                <property name="target" value="CAT_OP_SO_SOLUTIONS"/>
                <property name="text" value="Soluciones a ordenes de Servicio"/>
@@ -89,6 +84,18 @@
       
       <bean id="jobSpecService" class="com.inna.sinai.web.service.catalog.impl.JobSpecServiceImpl">
          <property name="dao" ref="jobSpecDAO"/>
+      </bean>
+      
+      <bean id="promotionService" class="com.inna.sinai.web.service.catalog.impl.PromotionServiceImpl">
+         <property name="dao" ref="promotionDAO"/>
+      </bean>
+      
+      <bean id="productService" class="com.inna.sinai.web.service.catalog.impl.ProductServiceImpl">
+         <property name="dao" ref="productDAO"/>
+      </bean>
+      
+      <bean id="inventoryTypeService" class="com.inna.sinai.web.service.catalog.impl.InventoryTypeServiceImpl">
+         <property name="dao" ref="inventoryTypeDAO"/>
       </bean>
       
       <bean id="encryptionService" class="com.inna.sinai.common.service.core.impl.EncryptionServiceImpl">

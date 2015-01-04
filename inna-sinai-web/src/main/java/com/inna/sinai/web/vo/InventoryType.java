@@ -1,62 +1,43 @@
 package com.inna.sinai.web.vo;
 
-public class JobSpec {
-
+public class InventoryType {
+	
   private Integer id;
   private String name;
   private String description;
-  private Float jobCost;
-  private Boolean isActive = true;
+  private Float cost;
   
-  public JobSpec(){
+  public InventoryType(){
+	  
   }
   
-  public JobSpec(Integer id){
+  public InventoryType(Integer id){
 	this.id = id;
   }
   
-  public JobSpec(Boolean isActive){
-	this.isActive = isActive;
-  }
-
   public Integer getId() {
 	return id;
   }
-
   public void setId(Integer id) {
 	this.id = id;
   }
-
   public String getName() {
 	return name;
   }
-
   public void setName(String name) {
 	this.name = name;
   }
-
   public String getDescription() {
 	return description;
   }
-
   public void setDescription(String description) {
 	this.description = description;
   }
-
-  public Float getJobCost() {
-	return jobCost;
+  public Float getCost() {
+	return cost;
   }
-
-  public void setJobCost(Float jobCost) {
-	this.jobCost = jobCost;
-  }
-
-  public Boolean getIsActive() {
-	return isActive;
-  }
-
-  public void setIsActive(Boolean isActive) {
-	this.isActive = isActive;
+  public void setCost(Float cost) {
+	this.cost = cost;
   }
   
 }

@@ -11,7 +11,7 @@
         </tr>
         <tr>
            <td align="left" class="label">Unidad de Negocio<em>*</em></td>
-           <td align="left" class="label">Costo de Instalacion<em>*</em></td>
+           <td align="left" class="label">Bonificación<em>*</em></td>
         </tr>
         <tr>
            <td>
@@ -22,7 +22,7 @@
                              itemLabel="name"/>
              </form:select>
            </td>
-           <td><form:input path="installationCost" cssClass="mediumInput validate[required]"/></td>
+           <td><form:input path="bonusCost" cssClass="mediumInput validate[required]"/></td>
         </tr>
         <tr height="50px">
 	       <td colspan="2">

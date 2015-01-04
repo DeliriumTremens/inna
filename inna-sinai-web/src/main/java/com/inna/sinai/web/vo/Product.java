@@ -1,6 +1,6 @@
 package com.inna.sinai.web.vo;
 
-public class Promotion {
+public class Product {
 
   private Integer id;
   private Integer businessUnitId;
@@ -8,13 +8,13 @@ public class Promotion {
   private String name;
   private String description;
   private boolean isActive;
-  private Float installationCost;
+  private Float bonusCost;
   
-  public Promotion(){
+  public Product(){
 	  
   }
   
-  public Promotion(Integer id){
+  public Product(Integer id){
 	this.id = id;
   }
   
@@ -54,11 +54,11 @@ public class Promotion {
   public void setIsActive(boolean isActive) {
 	this.isActive = isActive;
   }
-  public Float getInstallationCost() {
-	return installationCost;
+  public Float getBonusCost() {
+	return bonusCost;
   }
-  public void setInstallationCost(Float installationCost) {
-	this.installationCost = installationCost;
+  public void setBonusCost(Float bonusCost) {
+	this.bonusCost = bonusCost;
   }
   
 }

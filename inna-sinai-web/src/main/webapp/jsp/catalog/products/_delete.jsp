@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
    function removeRow(){
-	   actionConfirmed("catalog/promotions/delete.do","result"
+	   actionConfirmed("catalog/products/delete.do","result"
 		  ,{rowIds:getSelectedRows("REGISTROS")}
 	      , "modalConfirmDelete");
    }

@@ -1,7 +1,8 @@
 <%@ include file="/jsp/layout/container/_pageHeaders.jsp"%>
-<form:form  title="Agregar" modelAttribute="newRow" id="newRowForm" class="styledModalForm validableForm custom[width:570]" target="ajax:result" action="catalog/promotions/create.do">
+<form:form modelAttribute="editRow" id="modalFormEditRow" class="styledModalForm validableForm custom[width:570]" title="Editar" target="ajax:result" action="catalog/products/update.do">
+   <form:hidden path="id"/>
    <table>
-        <tr>
+         <tr>
            <td align="left" class="label">Nombre<em>*</em></td>
            <td align="left" class="label">Descripción<em>*</em></td>
         </tr>
@@ -11,7 +12,7 @@
         </tr>
         <tr>
            <td align="left" class="label">Unidad de Negocio<em>*</em></td>
-           <td align="left" class="label">Costo de Instalacion<em>*</em></td>
+           <td align="left" class="label">Bonificación<em>*</em></td>
         </tr>
         <tr>
            <td>
@@ -22,11 +23,15 @@
                              itemLabel="name"/>
              </form:select>
            </td>
-           <td><form:input path="installationCost" cssClass="mediumInput validate[required]"/></td>
+           <td><form:input path="bonusCost" cssClass="mediumInput validate[required]"/></td>
         </tr>
+        <tr>
+           <td align="left" class="label">Activo <em>*</em>: <form:checkbox path="isActive"></form:checkbox></td>
+        </tr>
+       
         <tr height="50px">
-	       <td colspan="2">
-	           <button class="litleButton styledButton"  style="float:left" type="button" onclick="closeModalForm('newRowForm')">Cancelar</button>
+	       <td colspan="3">
+	           <button class="litleButton styledButton"  style="float:left" type="button" onclick="closeModalForm('modalFormEditRow')">Cancelar</button>
 	           <button class="litleButton styledButton" style="float:right" type="submit">Guardar</button>
 	       </td>
         </tr>
