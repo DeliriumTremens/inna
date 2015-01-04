@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
    function showEditForm(id){
-	 loadModalForm("catalog/promotion/setupUpdate.do",{id:id});
+	 loadModalForm("catalog/promotions/setupUpdate.do",{id:id});
    }
 </script>
 
@@ -25,10 +25,11 @@
     <c:forEach items="${data}" var="row">
       <tr>
         <td><input type="checkbox" value ="${row.id}"/></td>
+        <td>${row.id}</td>
         <td>${row.businessUnitName}</td>
 		<td>${row.name}</td>
 		<td>${row.description}</td>
-		<td>${row.bonusCost}</td>
+		<td>${row.installationCost}</td>
 		<td>${row.isActive}</td>
 		<td><span class="ui-icon ui-icon-pencil" onclick="showEditForm('${row.id}');" style="float:left"></span></td>
 	  </tr>

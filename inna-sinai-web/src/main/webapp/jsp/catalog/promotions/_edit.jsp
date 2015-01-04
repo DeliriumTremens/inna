@@ -1,5 +1,5 @@
 <%@ include file="/jsp/layout/container/_pageHeaders.jsp"%>
-<form:form modelAttribute="editRow" id="modalFormEditRow" class="styledModalForm validableForm custom[width:570]" title="Editar" target="ajax:result" action="catalog/jobZones/update.do">
+<form:form modelAttribute="editRow" id="modalFormEditRow" class="styledModalForm validableForm custom[width:570]" title="Editar" target="ajax:result" action="catalog/promotions/update.do">
    <form:hidden path="id"/>
    <table>
          <tr>

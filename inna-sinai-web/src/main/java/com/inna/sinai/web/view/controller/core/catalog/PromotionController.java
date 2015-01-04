@@ -16,12 +16,12 @@ public class PromotionController extends CommonController{
   @RequestMapping("/setup.do")
   public String  setup(ModelMap model){
 	model.put("toSearch", new Promotion());
+	model.addAttribute("businessUnits", ctService.getAll("glBusinessUnit"));
 	return "catalog/promotions/promotions";
   }
 	  
   @RequestMapping("/seach.do")
   public String  search(ModelMap model, @ModelAttribute("toSearch") Promotion toSearch) {
-	toSearch.setActive(!toSearch.isActive());
 	model.addAttribute("data", prService.search(toSearch)); 
 	return "catalog/promotions/_rows";
   }
@@ -29,6 +29,7 @@ public class PromotionController extends CommonController{
   @RequestMapping("/setupCreate.do")
   public String  setupCreate(ModelMap model) {
 	model.addAttribute("newRow", new Promotion());
+	model.addAttribute("businessUnits", ctService.getAll("glBusinessUnit"));
 	return "catalog/promotions/_create";
   }
 	  
@@ -42,6 +43,7 @@ public class PromotionController extends CommonController{
   @RequestMapping("/setupUpdate.do")
   public String  setupUpdate(ModelMap model, @RequestParam Integer id) {
 	model.addAttribute("editRow", prService.searchById(id));
+	model.addAttribute("businessUnits", ctService.getAll("glBusinessUnit"));
 	return "catalog/promotions/_edit";
   }
 	  

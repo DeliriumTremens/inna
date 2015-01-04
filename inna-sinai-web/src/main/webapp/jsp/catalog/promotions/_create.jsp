@@ -1,5 +1,5 @@
 <%@ include file="/jsp/layout/container/_pageHeaders.jsp"%>
-<form:form  title="Agregar" modelAttribute="newRow" id="newRowForm" class="styledModalForm validableForm custom[width:570]" target="ajax:result" action="catalog/jobZones/create.do">
+<form:form  title="Agregar" modelAttribute="newRow" id="newRowForm" class="styledModalForm validableForm custom[width:570]" target="ajax:result" action="catalog/promotions/create.do">
    <table>
         <tr>
            <td align="left" class="label">Nombre<em>*</em></td>
@@ -24,10 +24,6 @@
            </td>
            <td><form:input path="installationCost" cssClass="mediumInput validate[required]"/></td>
         </tr>
-        <tr>
-           <td align="left" class="label">Activo <em>*</em>: <form:checkbox path="isActive"></form:checkbox></td>
-        </tr>
-        
         <tr height="50px">
 	       <td colspan="2">
 	           <button class="litleButton styledButton"  style="float:left" type="button" onclick="closeModalForm('newRowForm')">Cancelar</button>

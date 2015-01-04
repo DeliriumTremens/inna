@@ -16,6 +16,7 @@ public class ProductController extends CommonController{
   @RequestMapping("/setup.do")
   public String  setup(ModelMap model){
 	model.put("toSearch", new Product());
+	model.addAttribute("businessUnits", ctService.getAll("glBusinessUnit"));
 	return "catalog/products/products";
   }
 	  
