@@ -17,7 +17,7 @@ public class ProductDAOImpl extends AbstractDAO implements ProductDAO {
 	List<Object> params = new ArrayList<Object>();
 	sqlQuery.append("SELECT COPR.ID ID , COPR.NAME NAME, COPR.DESCRIPTION DESCRIPTION")
 		    .append("     , COPR.BONUS_COST BONUS_COST, COPR.IS_ACTIVE IS_ACTIVE")
-		    .append("     , COPR.BUSINESS_UNIT_ID BUSINESS_UNIT_ID, CGBU.NAME BUSINESS_UNIT_DESCRIPTION ")
+		    .append("     , COPR.BUSINESS_UNIT_ID BUSINESS_UNIT_ID, CGBU.NAME BUSINESS_UNIT_NAME ")
 			.append("FROM CAT_OP_PRODUCT COPR, CAT_GL_BUSINESS_UNIT CGBU ")
 			.append("WHERE COPR.BUSINESS_UNIT_ID = CGBU.ID");
 	if(toSearch != null){
@@ -26,16 +26,16 @@ public class ProductDAOImpl extends AbstractDAO implements ProductDAO {
 		params.add(toSearch.getId());
 	  }
 	  if(toSearch.getBusinessUnitId() != null && toSearch.getBusinessUnitId() > 0) {
-			sqlQuery.append(" COPR.BUSINESS_UNIT_ID = ? ");
+			sqlQuery.append(" AND COPR.BUSINESS_UNIT_ID = ? ");
 			params.add(toSearch.getBusinessUnitId());
 		  }
 	  if(toSearch.getName() != null && ! toSearch.getName().trim().equals("")) {
 		sqlQuery.append(" AND COPR.NAME LIKE ? ");
 		params.add("%" + toSearch.getName() + "%");
 	  }
-	  if(! toSearch.isActive()){
+	  if(toSearch.getIsActive()){
 		sqlQuery.append(" AND COPR.IS_ACTIVE = ? ");
-		params.add(toSearch.isActive());
+		params.add(toSearch.getIsActive());
 	  }
 	}
 	return (List<Product>) getJdbcTemplate().query(sqlQuery.toString()
@@ -49,7 +49,7 @@ public class ProductDAOImpl extends AbstractDAO implements ProductDAO {
 	    	        + "VALUES (?,?,?,?,?)";
     getJdbcTemplate().update(sqlQuery, new Object[]{row.getBusinessUnitId()
     		   , row.getName(), row.getDescription() , row.getBonusCost()
-    		                                         , row.isActive()});	
+    		                                         , row.getIsActive()});	
   }
 
   @Override
@@ -62,11 +62,11 @@ public class ProductDAOImpl extends AbstractDAO implements ProductDAO {
   public void update(Product row) {
 	String sqlQuery = "UPDATE CAT_OP_PRODUCT SET NAME = ?, DESCRIPTION = ?"
                     + "             , BUSINESS_UNIT_ID = ?, BONUS_COST = ?"
-                    + "             , IS_ACTIVE = ?"
+                    + "             , IS_ACTIVE = ? "
                     + "WHERE ID = ?";
     getJdbcTemplate().update(sqlQuery, new Object[]{row.getName()
-                                     , row.getDescription(), row.getBusinessUnitId()
-                                     , row.getBonusCost(), row.isActive()});		
+                         , row.getDescription(), row.getBusinessUnitId()
+                         , row.getBonusCost(), row.getIsActive(), row.getId()});		
   }
 
 }

@@ -39,11 +39,6 @@
                <property name="text" value="Causas de Reagendamiento"/>
              </bean>
              <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
-               <property name="name" value="stItemType"/>
-               <property name="target" value="CAT_ST_ITEM_TYPE"/>
-               <property name="text" value="Tipo de productos en Almacen"/>
-             </bean>
-             <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
                <property name="name" value="opSoSolutions"/>
                <property name="target" value="CAT_OP_SO_SOLUTIONS"/>
                <property name="text" value="Soluciones a ordenes de Servicio"/>

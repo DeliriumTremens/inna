@@ -17,7 +17,7 @@ public class InventoryTypeDAOImpl extends AbstractDAO
 	StringBuilder sqlQuery = new StringBuilder();
 	List<Object> params = new ArrayList<Object>();
 	sqlQuery.append("SELECT CSIT.ID ID , CSIT.NAME NAME, CSIT.DESCRIPTION DESCRIPTION")
-		    .append("     , CSIT.COST COST")
+		    .append("     , CSIT.COST COST ")
 			.append("FROM CAT_ST_ITEM_TYPE CSIT");
 	if(toSearch != null){
 	  if(toSearch.getId() != null && toSearch.getId() > 0) {
@@ -57,8 +57,7 @@ public class InventoryTypeDAOImpl extends AbstractDAO
                     + "                          , COST = ? "
                     + "WHERE ID = ?";
     getJdbcTemplate().update(sqlQuery, new Object[]{row.getName()
-                                     , row.getDescription(), row.getCost()
-                                     , row.getId()});		
+            , row.getDescription(), row.getCost(), row.getId()});		
   }
 
 }

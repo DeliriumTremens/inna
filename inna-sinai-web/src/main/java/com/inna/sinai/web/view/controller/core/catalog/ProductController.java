@@ -22,7 +22,6 @@ public class ProductController extends CommonController{
 	  
   @RequestMapping("/seach.do")
   public String  search(ModelMap model, @ModelAttribute("toSearch") Product toSearch) {
-	toSearch.setActive(!toSearch.isActive());
 	model.addAttribute("data", pService.search(toSearch)); 
 	return "catalog/products/_rows";
   }
