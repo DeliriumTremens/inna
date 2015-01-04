@@ -16,7 +16,7 @@ public class InventoryTypeController extends CommonController{
   @RequestMapping("/setup.do")
   public String  setup(ModelMap model){
 	model.put("toSearch", new InventoryType());
-	return "catalog/inventoryTypes/InventoryTypes";
+	return "catalog/inventoryTypes/inventoryTypes";
   }
 	  
   @RequestMapping("/seach.do")
@@ -28,7 +28,7 @@ public class InventoryTypeController extends CommonController{
   @RequestMapping("/setupCreate.do")
   public String  setupCreate(ModelMap model) {
 	model.addAttribute("newRow", new InventoryType());
-	return "catalog/InventoryTypes/_create";
+	return "catalog/inventoryTypes/_create";
   }
 	  
   @RequestMapping("/create.do")
