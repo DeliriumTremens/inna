@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.inna.sinai.common.bean.core.CatalogTemplate;
 import com.inna.sinai.common.controller.AbstractController;
 import com.inna.sinai.common.service.core.CatalogTemplateService;
+import com.inna.sinai.web.service.admin.UserAdminService;
 import com.inna.sinai.web.service.catalog.InventoryTypeService;
 import com.inna.sinai.web.service.catalog.JobSpecService;
 import com.inna.sinai.web.service.catalog.JobZoneService;
@@ -14,6 +15,9 @@ import com.inna.sinai.web.service.catalog.ProductService;
 import com.inna.sinai.web.service.catalog.PromotionService;
 import com.inna.sinai.web.vo.JobSpec;
 import com.inna.sinai.web.vo.JobZone;
+import com.inna.sinai.web.vo.MasterUser;
+import com.inna.sinai.web.vo.Product;
+import com.inna.sinai.web.vo.Promotion;
 
 @SessionAttributes({"session"})
 public class SinaiController extends AbstractController {
@@ -24,6 +28,11 @@ public class SinaiController extends AbstractController {
   protected InventoryTypeService itService = null;
   protected ProductService pService = null;
   protected PromotionService prService = null;
+  protected UserAdminService usrService;
+
+  public void setUsrService(UserAdminService usrService) {
+	this.usrService = usrService;
+  }
 
   public void setCtService(CatalogTemplateService ctService) {
 	this.ctService = ctService;
@@ -57,6 +66,14 @@ public class SinaiController extends AbstractController {
 	 return jsService.getAll();
   }
   
+  protected List<Product> getAllProducts(){
+    return pService.getAll();
+  }
+  
+  protected List<Promotion> getAllPromotions(){
+	 return prService.getAll();
+  }
+  
   protected List<CatalogTemplate> getAllPaymentTypes(){
     return ctService.getAll("opPaymentType");
   }
@@ -71,6 +88,12 @@ public class SinaiController extends AbstractController {
   
   protected List<CatalogTemplate> getAllProfiles(){
 	return ctService.getAll("secProfiles");
+  }
+  
+  protected List<MasterUser> getUsersByRole(Integer roleId){
+	MasterUser toSearch = new MasterUser();
+	toSearch.getUser().setEmployeeRolId(roleId);
+	return usrService.searchMasterUsers(toSearch);
   }
   
   protected List<CatalogTemplate> getAllBusinessUnits(){

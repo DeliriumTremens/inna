@@ -54,15 +54,22 @@ public class UserAdminDAOImpl extends AbstractDAO implements UserAdminDAO {
        if(isNotNull(toSearch.getUser().getId())){
     	   sqlQuery += "AND USR.ID = ? ";
     	   params.add(toSearch.getUser().getId());
-       }else if(isNotNull(toSearch.getUser().getName())){
+       }
+       if(isNotNull(toSearch.getUser().getName())){
         sqlQuery += "AND CONCAT(USR.NAME,' ',USR.LAST_NAME,' ',USR.MIDDLE_NAME) LIKE ? " ;
         params.add("%" + toSearch.getUser().getName() + "%");
-      } else if(isNotNull(toSearch.getUser().getMail())){
+      } 
+      if(isNotNull(toSearch.getUser().getMail())){
         sqlQuery += "AND USR.MAIL LIKE ? ";
         params.add("%" + toSearch.getUser().getMail() + "%");
-      } else if(isNotNull(toSearch.getProfile().getId())){
+      } 
+      if(isNotNull(toSearch.getProfile().getId())){
           sqlQuery += "AND PFL.ID = ? ";
           params.add(toSearch.getProfile().getId());
+      }
+      if(isNotNull(toSearch.getUser().getEmployeeRolId())){
+          sqlQuery += "AND USR.EMPLOYEE_ROL_ID = ? ";
+          params.add(toSearch.getUser().getEmployeeRolId());
       }
       if(toSearch.getCredential().getIsLocked()){
     	  sqlQuery += "AND CRED.IS_LOCKED = ?";

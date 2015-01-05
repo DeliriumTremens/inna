@@ -38,18 +38,25 @@
                  <td align="left" colspan="3"><hr></td>
                </tr>
                <tr>
-                  <td align="left" class="label" >Número de cuenta</td>
+                  <td align="left" class="label" >Promocion</td>
                   <td align="left" class="label" >Tecnico<em>*</em></td>
                   <td align="left" class="label" >Zona<em>*</em></td>
                </tr>
                <tr>
-                 <td align="left"><form:input path="account" style="width:97%" /></td>
                  <td align="left">
-                   <form:select path="jobZoneId" id="jobZoneId"  style="width:98%" >
+                   <form:select path="promotionId" id="promotionId"  style="width:98%" >
                        <form:option value="">SELECCIONE</form:option>
-                       <form:options items="${jobZones}"  
+                       <form:options items="${promotions}"  
                                itemValue="id"
                                itemLabel="name"/>
+                    </form:select>
+                 </td>
+                 <td align="left">
+                   <form:select path="workTeam[0].toUserId" id="techId"  style="width:98%" >
+                       <form:option value="">SELECCIONE</form:option>
+                       <form:options items="${techniques}"  
+                               itemValue="user.id"
+                               itemLabel="user.name"/>
                     </form:select>
                  </td>
                  <td align="left">
@@ -70,7 +77,7 @@
                  <td align="left">
                    <form:select path="jobSpecId" id="jobSpecId"  style="width:98%" >
                        <form:option value="">SELECCIONE</form:option>
-                       <form:options items="${jobSpecs}"  
+                       <form:options items="${products}"  
                                itemValue="id"
                                itemLabel="name"/>
                     </form:select>

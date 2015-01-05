@@ -26,6 +26,9 @@ public class ContractController extends SinaiController {
   public String  setupCreate(ModelMap model, @ModelAttribute Session session) {
 	model.put("newRow", new Contract());
 	model.addAttribute("jobSpecs", getAllJobSpecs());
+	model.addAttribute("products", getAllProducts());
+	model.addAttribute("promotions", getAllPromotions());
+	model.addAttribute("techniques", getUsersByRole(4));
 	model.addAttribute("paymentTypes", getAllPaymentTypes());
 	model.addAttribute("saleForces", getAllSaleForces());
 	model.addAttribute("activityPlaces", getAllActivityPlaces());
