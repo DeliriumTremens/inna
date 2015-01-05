@@ -1,7 +1,9 @@
 <%@ include file="/jsp/layout/container/_pageHeaders.jsp"%>
 
 <script type="text/javascript">
-
+  function showEdit(id){
+	  loadContent("operation/contract/setupEdit.do?contractId=0");
+  }
 </script>
 
 <table class="styledTable" title="CONTRATOS"> 
@@ -23,7 +25,7 @@
 		 <td>${data.workTeam[0].toUserName}</td>
 		 <td>${data.openedDate}</td>
 		 <td>${data.jobZoneDescription}</td>
-		 <td><span class="ui-icon ui-icon-pencil" onclick="showEditUserInformation('${data.id}');" style="float:left"></span></td>
+		 <td><span class="ui-icon ui-icon-pencil" onclick="showEdit('${data.id}');" style="float:left"></span></td>
 	  </tr>
     </c:forEach>
   </tbody> 

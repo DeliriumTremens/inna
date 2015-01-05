@@ -92,6 +92,48 @@ public class ContractController extends SinaiController {
 	return "operation/contract/_contractTable";
   }
   
+  @RequestMapping("/setupEdit.do")
+  public String  setupEdit(ModelMap model, @ModelAttribute Session session
+		                             , @RequestParam Integer contractId) {
+	model.put("editRow", new Contract());
+	model.addAttribute("jobSpecs", getAllJobSpecs());
+	model.addAttribute("products", getAllProducts());
+	model.addAttribute("promotions", getAllPromotions());
+	model.addAttribute("techniques", getUsersByRole(4));
+	model.addAttribute("paymentTypes", getAllPaymentTypes());
+	model.addAttribute("saleForces", getAllSaleForces());
+	model.addAttribute("activityPlaces", getAllActivityPlaces());
+	model.addAttribute("jobZones", getJobZonesByBusinessUnit(session.getUser()
+                                                       .getBusinessUnitId()));
+	
+	Contract contract = null;
+	List<WorkTeam> workTeam = new ArrayList<WorkTeam>();
+	WorkTeam worker = new WorkTeam();
+	contract = new Contract();
+	contract.setId(1);
+	contract.setContract("63991450");
+	contract.setAccount("501091988060");
+	contract.setPromotionId(1);
+	contract.setJobZoneId(2);
+	contract.setClientName("Ignacio Rabelo fuentes");
+	contract.setJobSpecId(1);
+	contract.setSellerName("Maria Rosa de la Fuente");
+	contract.setPaymentTypeId(1);
+	contract.setSalesForceId(1);
+	contract.setActivationPlaceId(1);
+	contract.setProspectionPlaceId(2);
+    contract.setOpenedDate(new Date());
+    contract.setComments("CLIENTE DA VISTO BUENO DE LA INSTALACION");
+    
+    worker.setTypeId(1);
+    worker.setToUserName("Armando Muños Reyes");
+    workTeam.add(worker);
+    contract.setWorkTeam(workTeam);
+    
+	model.put("editRow", contract);
+    return "operation/contract/editContract";
+  }
+  
   @RequestMapping("/seachInventory.do")
   public String  seachInventory(ModelMap model, @RequestParam Integer techId) {
 	 return "operation/contract/_inventory";
