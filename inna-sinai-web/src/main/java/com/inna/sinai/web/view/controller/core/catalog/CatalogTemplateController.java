@@ -22,7 +22,7 @@ public class CatalogTemplateController extends SinaiController {
   }
   
   @RequestMapping("/seach.do")
-  public String  searchUser(ModelMap model
+  public String  search(ModelMap model
 		             , @ModelAttribute("toSearch") CatalogTemplate toSearch
 		             , @RequestParam String templateName) {
 	CatalogTemplateConfig config =   ctService.getTemplate(templateName);
@@ -44,7 +44,7 @@ public class CatalogTemplateController extends SinaiController {
 		             , @RequestParam String templateName) {
 	ctService.insert(newRow, ctService.getTemplate(templateName).getTarget());
 	model.addAttribute("infMessage", "msg.insertOK");
-	return searchUser(model, newRow, templateName);
+	return search(model, newRow, templateName);
   }
   
   @RequestMapping("/setupUpdate.do")
@@ -62,7 +62,7 @@ public class CatalogTemplateController extends SinaiController {
                     , @RequestParam String templateName) {
 	ctService.update(editRow, ctService.getTemplate(templateName).getTarget());
 	model.addAttribute("infMessage", "msg.updateOK");
-    return searchUser(model, editRow, templateName);
+    return search(model, editRow, templateName);
   }
   
   @RequestMapping("/setupDelete.do")
@@ -76,7 +76,7 @@ public class CatalogTemplateController extends SinaiController {
 		                     , @RequestParam String templateName) {
 	ctService.delete(rowIds, ctService.getTemplate(templateName).getTarget());
 	model.addAttribute("infMessage", "msg.deleteOK");
-	return searchUser(model, null, templateName);
+	return search(model, null, templateName);
   }
   
 }

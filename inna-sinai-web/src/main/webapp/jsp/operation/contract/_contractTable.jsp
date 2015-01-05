@@ -11,18 +11,19 @@
       <th width="10%">CUENTA</th> 
 	  <th width="25%">TECNICO INSTALADOR</th> 
 	  <th width="15%">FECHA INSTALACION</th>
-	  <th width="35%">ZONA</th> 
+	  <th width="33%">ZONA</th> 
+	  <th width="2%"></th>
    </tr> 
   </thead> 
   <tbody> 
-    <c:forEach items="${masterUsers}" var="masterUser">
+    <c:forEach items="${data}" var="data">
       <tr>
-		<td>${masterUser.user.id}</td>
-		<td>${masterUser.user.name} ${masterUser.user.lastName} ${masterUser.user.middleName}</td>
-		 <td>${masterUser.credential.nickName}</td>
-		 <td>${masterUser.profile.name}</td>
-		 <td>${masterUser.user.mail}</td>
-		 <td><span class="ui-icon ui-icon-pencil" onclick="showEditUserInformation('${masterUser.user.id}');" style="float:left"></span></td>
+		<td>${data.contract}</td>
+		<td>${data.account}</td>
+		 <td>${data.workTeam[0].toUserName}</td>
+		 <td>${data.openedDate}</td>
+		 <td>${data.jobZoneDescription}</td>
+		 <td><span class="ui-icon ui-icon-pencil" onclick="showEditUserInformation('${data.id}');" style="float:left"></span></td>
 	  </tr>
     </c:forEach>
   </tbody> 

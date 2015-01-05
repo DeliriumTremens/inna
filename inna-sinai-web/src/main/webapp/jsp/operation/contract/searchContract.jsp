@@ -15,7 +15,7 @@
   <div id ="pageTitle" class="pageTitle">Contratos</div>
   <div class="messageArea"></div>
   <div id="searchArea" class="searchArea">
-     <form:form modelAttribute="toSearch" id="searchForm" target="ajax:result" action="operation/seach.do" cssClass="validableForm">
+     <form:form modelAttribute="toSearch" id="searchForm" target="ajax:result" action="operation/contract/seach.do" cssClass="validableForm">
          <form:hidden path="workTeam[0].typeId" value="1" />
          <table class="fullWidthTable">
                <tr>
