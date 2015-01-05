@@ -8,17 +8,18 @@
 	 $('#prospectDate').timepicker({
 		    showPeriodLabels: false,
 		});
-	 $( "#cardSelectable" ).selectable();
-	 $( "#irdSelectable" ).selectable();
    });
  
+   function loadInventory(){
+	 load("operation/contract/seachInventory.do?techId=1","inventory");
+   }
 </script>
 
 <div id="pageContent" class="pageContent">
   <div id ="pageTitle" class="pageTitle">Captura de Contrato</div>
   <div class="messageArea"></div>
   <div id="searchArea" class="searchArea">
-     <form:form modelAttribute="newRow" id="searchForm" action="operation/create.do" cssClass="validableForm">
+     <form:form modelAttribute="newRow" id="searchForm" action="operation/contract/setup.do" cssClass="validableForm">
          <table class="fullWidthTable" >
               <tr>
                   <td align="left" class="label" >Numero de contrato<em>*</em></td>
@@ -52,11 +53,11 @@
                     </form:select>
                  </td>
                  <td align="left">
-                   <form:select path="workTeam[0].toUserId" id="techId"  style="width:98%" >
+                   <form:select path="workTeam[0].toUserId" id="techId"  style="width:98%" onchange="loadInventory();">
                        <form:option value="">SELECCIONE</form:option>
-                       <form:options items="${techniques}"  
-                               itemValue="user.id"
-                               itemLabel="user.name"/>
+                       <c:forEach var="techniques" items="${techniques}">
+                          <form:option value="${techniques.user.id}"><c:out value="${techniques.user.name} ${techniques.user.lastName} ${techniques.user.middleName}"/></form:option>
+                       </c:forEach>                               
                     </form:select>
                  </td>
                  <td align="left">
@@ -148,17 +149,14 @@
                  <td align="left">
                    <form:select path="paymentTypeId" id="paymentTypeId"  style="width:98%" >
                        <form:option value="">SELECCIONE</form:option>
-                       <form:options items="${paymentTypes}"  
-                               itemValue="id"
-                               itemLabel="name"/>
+                       <form:option value="">NEZAHUALCOYOTL</form:option>
                     </form:select>
                  </td>
                  <td align="left">
                    <form:select path="paymentTypeId" id="paymentTypeId"  style="width:98%" >
                        <form:option value="">SELECCIONE</form:option>
-                       <form:options items="${paymentTypes}"  
-                               itemValue="id"
-                               itemLabel="name"/>
+                       <form:option value="">METROPOLITANA 1A. SEC</form:option>
+                       <form:option value="">METROPOLITANA 2A. SEC</form:option>
                     </form:select>
                  </td>
                </tr>
@@ -172,37 +170,8 @@
                  <td align="left" colspan="3"><hr></td>
                </tr>
                <tr>
-                    <td align="right" class="label" colspan="3">
-                         <table style="width:100%; height:150px">
-                               <tr>
-                                   <td width="50%">Tarjeta Inteligente</td>
-                                   <td width="50%">IRD</td>
-                               </tr>
-                               <tr>
-                                  <td>
-                                      <ol id="cardSelectable" class="selectable">
-                                        <li class="ui-state-default">623530714</li>
-                                        <li class="ui-state-default">623530715</li>
-                                        <li class="ui-state-default">623530716</li>
-                                        <li class="ui-state-default">623530717</li>
-                                        <li class="ui-state-default">623530718</li>
-                                        <li class="ui-state-default">623530719</li>
-                                        <li class="ui-state-default">623530720</li>
-                                      </ol>               
-                                  </td>
-                                  <td>
-                                       <ol id="irdSelectable" class="selectable">
-                                        <li class="ui-state-default">CE0B1421463905095</li>
-                                        <li class="ui-state-default">CE0B1421463905096</li>
-                                        <li class="ui-state-default">CE0B1421463905097</li>
-                                        <li class="ui-state-default">CE0B1421463905098</li>
-                                        <li class="ui-state-default">CE0B1421463905099</li>
-                                        <li class="ui-state-default">CE0B1421463905100</li>
-                                        <li class="ui-state-default">CE0B1421463905101</li>
-                                      </ol>           
-                                  </td>
-                               </tr>
-                         </table>
+                    <td align="right" class="label" colspan="3" style="width:100%; height:150px">
+                         <div id="inventory"></div>
                     </td>
                </tr>
                <tr>

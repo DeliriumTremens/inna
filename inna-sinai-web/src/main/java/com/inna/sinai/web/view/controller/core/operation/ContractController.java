@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.inna.sinai.web.view.controller.SinaiController;
 import com.inna.sinai.web.vo.Contract;
@@ -89,6 +90,11 @@ public class ContractController extends SinaiController {
     data.add(contract);
     model.addAttribute("data", data); 
 	return "operation/contract/_contractTable";
+  }
+  
+  @RequestMapping("/seachInventory.do")
+  public String  seachInventory(ModelMap model, @RequestParam Integer techId) {
+	 return "operation/contract/_inventory";
   }
 
 }
