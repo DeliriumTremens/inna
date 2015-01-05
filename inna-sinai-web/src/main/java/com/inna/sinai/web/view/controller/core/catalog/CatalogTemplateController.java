@@ -13,7 +13,7 @@ import com.inna.sinai.web.view.controller.SinaiController;
 @Controller
 @RequestMapping("catalog/template")
 public class CatalogTemplateController extends SinaiController {
-  
+	
   @RequestMapping("/setup.do")
   public String  setup(ModelMap model, @RequestParam String templateName){
 	model.put("config", ctService.getTemplate(templateName));

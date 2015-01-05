@@ -27,7 +27,7 @@
    <!--::::::::::::::::::::::::::::::: Controllers :::::::::::::::::::::::::::::::-->
    
    
-   <bean id="commonController" class="com.inna.sinai.web.view.controller.CommonController">
+   <bean id="sinaiController" class="com.inna.sinai.web.view.controller.SinaiController">
      <property name="ctService" ref="catalogoTemplateService" />
      <property name="jzService" ref="jobZoneService" />
      <property name="jsService" ref="jobSpecService" />
@@ -39,29 +39,29 @@
    <bean class="com.inna.sinai.common.controller.core.ErrorController"/>
    
    
-   <bean id="catalogTemplateController" class="com.inna.sinai.web.view.controller.core.catalog.CatalogTemplateController" parent="commonController"/>
+   <bean id="catalogTemplateController" class="com.inna.sinai.web.view.controller.core.catalog.CatalogTemplateController" parent="sinaiController"/>
    
    
    
-   <bean class="com.inna.sinai.web.view.controller.core.security.LoginController" parent ="commonController">
+   <bean class="com.inna.sinai.web.view.controller.core.security.LoginController" parent ="sinaiController">
       <property name="service" ref="loginService" />
    </bean>
 
    
-   <bean class="com.inna.sinai.web.view.controller.core.admin.UserAdministrationController" parent ="commonController">
+   <bean class="com.inna.sinai.web.view.controller.core.admin.UserAdministrationController" parent ="sinaiController">
         <property name="service" ref="userService" />
    </bean>
    
-   <bean id="jobZoneController" class="com.inna.sinai.web.view.controller.core.catalog.JobZoneController" parent="commonController"/>
-   <bean id="jobSpecController" class="com.inna.sinai.web.view.controller.core.catalog.JobSpecController" parent="commonController"/>
-   <bean id="productController" class="com.inna.sinai.web.view.controller.core.catalog.ProductController" parent="commonController"/>
-   <bean id="promotionController" class="com.inna.sinai.web.view.controller.core.catalog.PromotionController" parent="commonController"/>
-   <bean id="inventoryTypeController" class="com.inna.sinai.web.view.controller.core.catalog.InventoryTypeController" parent="commonController"/>
-   <bean id="installationsReportController" class="com.inna.sinai.web.view.controller.core.reports.InstallationsReportController" parent="commonController"/>
-   <bean id="globalReportController" class="com.inna.sinai.web.view.controller.core.reports.GlobalReportController" parent="commonController"/>
-   <bean id="supervisionsReportController" class="com.inna.sinai.web.view.controller.core.reports.SupervisionReportController" parent="commonController"/>
-   <bean id="warrantyReportController" class="com.inna.sinai.web.view.controller.core.reports.WarrantyReportController" parent="commonController"/>
-   <bean id="rescheduleReportController" class="com.inna.sinai.web.view.controller.core.reports.RescheduleReportController" parent="commonController"/>
-   <bean id="contractController" class="com.inna.sinai.web.view.controller.core.operation.ContractController" parent="commonController"/>
+   <bean id="jobZoneController" class="com.inna.sinai.web.view.controller.core.catalog.JobZoneController" parent="sinaiController"/>
+   <bean id="jobSpecController" class="com.inna.sinai.web.view.controller.core.catalog.JobSpecController" parent="sinaiController"/>
+   <bean id="productController" class="com.inna.sinai.web.view.controller.core.catalog.ProductController" parent="sinaiController"/>
+   <bean id="promotionController" class="com.inna.sinai.web.view.controller.core.catalog.PromotionController" parent="sinaiController"/>
+   <bean id="inventoryTypeController" class="com.inna.sinai.web.view.controller.core.catalog.InventoryTypeController" parent="sinaiController"/>
+   <bean id="installationsReportController" class="com.inna.sinai.web.view.controller.core.reports.InstallationsReportController" parent="sinaiController"/>
+   <bean id="globalReportController" class="com.inna.sinai.web.view.controller.core.reports.GlobalReportController" parent="sinaiController"/>
+   <bean id="supervisionsReportController" class="com.inna.sinai.web.view.controller.core.reports.SupervisionReportController" parent="sinaiController"/>
+   <bean id="warrantyReportController" class="com.inna.sinai.web.view.controller.core.reports.WarrantyReportController" parent="sinaiController"/>
+   <bean id="rescheduleReportController" class="com.inna.sinai.web.view.controller.core.reports.RescheduleReportController" parent="sinaiController"/>
+   <bean id="contractController" class="com.inna.sinai.web.view.controller.core.operation.ContractController" parent="sinaiController"/>
 
 </beans>

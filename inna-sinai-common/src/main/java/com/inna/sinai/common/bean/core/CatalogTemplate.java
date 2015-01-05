@@ -9,7 +9,6 @@ public class CatalogTemplate {
   private String name;
   private String description;
   
-  private List<String> searchingFields = Arrays.asList("NOMBRE");
   
   public CatalogTemplate(){
 	  

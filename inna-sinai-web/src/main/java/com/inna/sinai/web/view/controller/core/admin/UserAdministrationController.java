@@ -23,7 +23,7 @@ public class UserAdministrationController  extends SinaiController {
 
   @RequestMapping("/setup.do")
   public String  setup(ModelMap model){
-	model.addAttribute("profiles", ctService.getAll("secProfiles")); 
+	model.addAttribute("profiles", getAllProfiles()); 
     model.addAttribute("toSearch", new MasterUser());
     return "admin/user/searchUser";
   }
@@ -48,9 +48,9 @@ public class UserAdministrationController  extends SinaiController {
   
   @RequestMapping("/setupCreate.do")
   public String  setupCreate(ModelMap model) {
-	model.addAttribute("profiles", ctService.getAll("secProfiles")); 
-	model.addAttribute("businessUnits", ctService.getAll("glBusinessUnit")); 
-	model.addAttribute("employeeRols", ctService.getAll("secEmployeeRol")); 
+	model.addAttribute("profiles", getAllProfiles()); 
+	model.addAttribute("businessUnits", getAllBusinessUnits()); 
+	model.addAttribute("employeeRols", getAllEmployeeRols()); 
 	model.addAttribute("newMasterUser", new MasterUser());
 	return "admin/user/_createUser";
   }
@@ -73,9 +73,9 @@ public class UserAdministrationController  extends SinaiController {
   @RequestMapping("/setupUpdate.do")
   public String  setupUpdate(@RequestParam Integer userId, ModelMap model) {
 	model.addAttribute("masterUser", service.getMasterUser(userId));
-	model.addAttribute("profiles", ctService.getAll("secProfiles")); 
-    model.addAttribute("businessUnits", ctService.getAll("glBusinessUnit")); 
-	model.addAttribute("employeeRols", ctService.getAll("secEmployeeRol")); 
+	model.addAttribute("profiles", getAllProfiles()); 
+	model.addAttribute("businessUnits", getAllBusinessUnits()); 
+	model.addAttribute("employeeRols", getAllEmployeeRols()); 
 	return "admin/user/_editUser";
   }
   
