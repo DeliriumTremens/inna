@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.inna.sinai.web.view.controller.CommonController;
+import com.inna.sinai.web.view.controller.SinaiController;
 import com.inna.sinai.web.vo.JobZone;
 
 @Controller
 @RequestMapping("catalog/jobZones")
-public class JobZoneController extends CommonController {
+public class JobZoneController extends SinaiController {
 
   @RequestMapping("/setup.do")
   public String  setup(ModelMap model){

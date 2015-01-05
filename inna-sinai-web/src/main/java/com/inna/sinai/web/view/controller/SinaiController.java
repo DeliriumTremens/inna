@@ -11,7 +11,7 @@ import com.inna.sinai.web.service.catalog.ProductService;
 import com.inna.sinai.web.service.catalog.PromotionService;
 
 @SessionAttributes({"session"})
-public class CommonController extends AbstractController {
+public class SinaiController extends AbstractController {
 	
   protected CatalogTemplateService ctService = null;
   protected JobZoneService jzService = null;

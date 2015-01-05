@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.inna.sinai.web.view.controller.CommonController;
+import com.inna.sinai.web.view.controller.SinaiController;
 import com.inna.sinai.web.vo.Product;
 
 @Controller
 @RequestMapping("catalog/products")
-public class ProductController extends CommonController{
+public class ProductController extends SinaiController{
 	
   @RequestMapping("/setup.do")
   public String  setup(ModelMap model){

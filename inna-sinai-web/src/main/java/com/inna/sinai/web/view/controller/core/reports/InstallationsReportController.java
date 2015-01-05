@@ -5,11 +5,11 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.inna.sinai.web.vo.ReportSearch;
-import com.inna.sinai.web.view.controller.CommonController;
+import com.inna.sinai.web.view.controller.SinaiController;
 
 @Controller
 @RequestMapping("report/installations")
-public class InstallationsReportController extends CommonController{
+public class InstallationsReportController extends SinaiController{
 	
 	
   @RequestMapping("/setup.do")

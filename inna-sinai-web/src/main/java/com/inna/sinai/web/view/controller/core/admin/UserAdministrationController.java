@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.inna.sinai.common.exception.core.SystemException;
 import com.inna.sinai.web.vo.MasterUser;
 import com.inna.sinai.web.service.admin.UserAdminService;
-import com.inna.sinai.web.view.controller.CommonController;
+import com.inna.sinai.web.view.controller.SinaiController;
 
 @Controller
 @RequestMapping("usersAdministration")
-public class UserAdministrationController  extends CommonController {
+public class UserAdministrationController  extends SinaiController {
 	
   private UserAdminService service;
 	

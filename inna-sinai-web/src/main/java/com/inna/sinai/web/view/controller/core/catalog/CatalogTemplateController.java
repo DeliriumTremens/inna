@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.inna.sinai.common.bean.core.CatalogTemplate;
 import com.inna.sinai.common.bean.core.CatalogTemplateConfig;
-import com.inna.sinai.web.view.controller.CommonController;
+import com.inna.sinai.web.view.controller.SinaiController;
 
 @Controller
 @RequestMapping("catalog/template")
-public class CatalogTemplateController extends CommonController {
+public class CatalogTemplateController extends SinaiController {
   
   @RequestMapping("/setup.do")
   public String  setup(ModelMap model, @RequestParam String templateName){
