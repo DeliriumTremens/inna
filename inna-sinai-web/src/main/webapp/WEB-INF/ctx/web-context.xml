@@ -68,5 +68,6 @@
    <bean id="supervisionController" class="com.inna.sinai.web.view.controller.core.operation.SupervisionController" parent="sinaiController"/>
    <bean id="localInventoryController" class="com.inna.sinai.web.view.controller.core.inventory.LocalInventoryController" parent="sinaiController"/>
    <bean id="skyInventoryController" class="com.inna.sinai.web.view.controller.core.inventory.SkyInventoryController" parent="sinaiController"/>
+   <bean id="asignationInventoryController" class="com.inna.sinai.web.view.controller.core.inventory.AsignationInventoryController" parent="sinaiController"/>
 
 </beans>
