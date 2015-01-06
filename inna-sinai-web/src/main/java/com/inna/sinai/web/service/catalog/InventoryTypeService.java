@@ -2,15 +2,15 @@ package com.inna.sinai.web.service.catalog;
 
 import java.util.List;
 
-import com.inna.sinai.web.vo.InventoryType;
+import com.inna.sinai.web.vo.LocalInventoryType;
 
 public interface InventoryTypeService {
 	
-  public List<InventoryType> getAll();
-  public InventoryType searchById(Integer id);
-  public List<InventoryType> search(InventoryType toSearch);
-  public void insert(InventoryType row);
+  public List<LocalInventoryType> getAll();
+  public LocalInventoryType searchById(Integer id);
+  public List<LocalInventoryType> search(LocalInventoryType toSearch);
+  public void insert(LocalInventoryType row);
   public void delete(String rowIds);
-  public void update(InventoryType row);
+  public void update(LocalInventoryType row);
 
 }

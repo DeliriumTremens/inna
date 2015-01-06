@@ -13,7 +13,7 @@ import com.inna.sinai.web.service.catalog.JobSpecService;
 import com.inna.sinai.web.service.catalog.JobZoneService;
 import com.inna.sinai.web.service.catalog.ProductService;
 import com.inna.sinai.web.service.catalog.PromotionService;
-import com.inna.sinai.web.vo.InventoryType;
+import com.inna.sinai.web.vo.LocalInventoryType;
 import com.inna.sinai.web.vo.JobSpec;
 import com.inna.sinai.web.vo.JobZone;
 import com.inna.sinai.web.vo.MasterUser;
@@ -105,9 +105,13 @@ public class SinaiController extends AbstractController {
 	return ctService.getAll("secEmployeeRol");
   }
   
-  protected List<InventoryType> getAllLocalInventoryTypes(){
+  protected List<LocalInventoryType> getAllLocalInventoryTypes(){
 	return itService.getAll();
   }
+  
+  protected List<CatalogTemplate> getAllSkyInventoryTypes(){
+		return ctService.getAll("secEmployeeRol");
+	  }
   
   
 }

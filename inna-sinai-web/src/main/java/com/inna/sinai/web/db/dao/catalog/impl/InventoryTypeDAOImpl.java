@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.inna.sinai.common.dao.AbstractDAO;
 import com.inna.sinai.web.db.dao.catalog.InventoryTypeDAO;
-import com.inna.sinai.web.vo.InventoryType;
+import com.inna.sinai.web.vo.LocalInventoryType;
 
 @SuppressWarnings("unchecked")
 public class InventoryTypeDAOImpl extends AbstractDAO 
@@ -13,7 +13,7 @@ public class InventoryTypeDAOImpl extends AbstractDAO
 
 	
   @Override
-  public List<InventoryType> search(InventoryType toSearch) {
+  public List<LocalInventoryType> search(LocalInventoryType toSearch) {
 	StringBuilder sqlQuery = new StringBuilder();
 	List<Object> params = new ArrayList<Object>();
 	sqlQuery.append("SELECT CSIT.ID ID , CSIT.NAME NAME, CSIT.DESCRIPTION DESCRIPTION")
@@ -33,12 +33,12 @@ public class InventoryTypeDAOImpl extends AbstractDAO
 		params.add("%" + toSearch.getName() + "%");
 	  }
 	}
-	return (List<InventoryType>) getJdbcTemplate().query(sqlQuery.toString()
-		             , params.toArray(), getMapperFor(InventoryType.class));
+	return (List<LocalInventoryType>) getJdbcTemplate().query(sqlQuery.toString()
+		             , params.toArray(), getMapperFor(LocalInventoryType.class));
   }
 
   @Override
-  public void insert(InventoryType row) {
+  public void insert(LocalInventoryType row) {
 	String sqlQuery = "INSERT INTO CAT_ST_ITEM_TYPE(NAME, DESCRIPTION, COST) " 
 	    	        + "VALUES (?,?,?)";
     getJdbcTemplate().update(sqlQuery, new Object[]{row.getName()
@@ -52,7 +52,7 @@ public class InventoryTypeDAOImpl extends AbstractDAO
   }
 
   @Override
-  public void update(InventoryType row) {
+  public void update(LocalInventoryType row) {
 	String sqlQuery = "UPDATE CAT_ST_ITEM_TYPE SET NAME = ?, DESCRIPTION = ?"
                     + "                          , COST = ? "
                     + "WHERE ID = ?";

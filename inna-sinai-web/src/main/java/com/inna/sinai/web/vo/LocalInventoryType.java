@@ -1,6 +1,6 @@
 package com.inna.sinai.web.vo;
 
-public class InventoryType {
+public class LocalInventoryType {
 	
   private Integer id;
   private String name;
@@ -8,11 +8,11 @@ public class InventoryType {
   private Integer quantity = 0;
   private Float cost;
   
-  public InventoryType(){
+  public LocalInventoryType(){
 	  
   }
   
-  public InventoryType(Integer id){
+  public LocalInventoryType(Integer id){
 	this.id = id;
   }
   

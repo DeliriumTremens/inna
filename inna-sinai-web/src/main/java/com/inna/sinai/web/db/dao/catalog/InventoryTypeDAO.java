@@ -2,13 +2,13 @@ package com.inna.sinai.web.db.dao.catalog;
 
 import java.util.List;
 
-import com.inna.sinai.web.vo.InventoryType;
+import com.inna.sinai.web.vo.LocalInventoryType;
 
 public interface InventoryTypeDAO {
 	
-  public List<InventoryType> search(InventoryType toSearch);
-  public void insert(InventoryType row);
+  public List<LocalInventoryType> search(LocalInventoryType toSearch);
+  public void insert(LocalInventoryType row);
   public void delete(Integer rowId);
-  public void update(InventoryType row);
+  public void update(LocalInventoryType row);
 
 }

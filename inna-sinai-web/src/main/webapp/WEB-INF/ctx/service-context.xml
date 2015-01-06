@@ -74,6 +74,10 @@
                <property name="name" value="opActivityPlaces"/>
                <property name="target" value="CAT_OP_ACTIVITY_PLACES"/>
              </bean>
+             <bean class="com.inna.sinai.common.bean.core.CatalogTemplateConfig" >
+               <property name="name" value="stClientInventoryType"/>
+               <property name="target" value="CAT_ST_CLIENT_ITEM_TYPE"/>
+             </bean>
            </list>
          </property>
       </bean>

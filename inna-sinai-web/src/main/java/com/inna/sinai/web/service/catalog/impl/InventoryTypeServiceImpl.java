@@ -5,7 +5,7 @@ import java.util.List;
 import com.inna.sinai.common.service.AbstractService;
 import com.inna.sinai.web.db.dao.catalog.InventoryTypeDAO;
 import com.inna.sinai.web.service.catalog.InventoryTypeService;
-import com.inna.sinai.web.vo.InventoryType;
+import com.inna.sinai.web.vo.LocalInventoryType;
 
 public class InventoryTypeServiceImpl extends AbstractService 
                                 implements InventoryTypeService{
@@ -17,23 +17,23 @@ public class InventoryTypeServiceImpl extends AbstractService
   }
 
   @Override
-  public List<InventoryType> getAll() {
+  public List<LocalInventoryType> getAll() {
 	return dao.search(null);
   }
 
   @Override
-  public InventoryType searchById(Integer id) {
-	List<InventoryType> InventoryTypes = dao.search(new InventoryType(id));
+  public LocalInventoryType searchById(Integer id) {
+	List<LocalInventoryType> InventoryTypes = dao.search(new LocalInventoryType(id));
 	return InventoryTypes.size() == 1 ? InventoryTypes.get(0) : null;
   }
 
   @Override
-  public List<InventoryType> search(InventoryType toSearch) {
+  public List<LocalInventoryType> search(LocalInventoryType toSearch) {
 	return dao.search(toSearch);
   }
 
   @Override
-  public void insert(InventoryType row) {
+  public void insert(LocalInventoryType row) {
 	dao.insert(row);
   }
 
@@ -46,7 +46,7 @@ public class InventoryTypeServiceImpl extends AbstractService
   }
 
   @Override
-  public void update(InventoryType row) {
+  public void update(LocalInventoryType row) {
 	dao.update(row);	
   }
 
