@@ -44,7 +44,7 @@
                    <form:select path="contract.workTeam[0].toUserId" id="techId"  style="width:98%" onchange="loadInventory();">
                        <form:option value="">SELECCIONE</form:option>
                        <form:option value="1">Armando Muños Reyes</form:option>
-                       <form:option value="2">Armando Felipe Vargas</form:option>
+                       <form:option value="2">Jaime Felipe Vargas</form:option>
                     </form:select>
                  </td>
                  <td align="left">
