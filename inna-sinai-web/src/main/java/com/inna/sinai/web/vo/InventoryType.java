@@ -5,6 +5,7 @@ public class InventoryType {
   private Integer id;
   private String name;
   private String description;
+  private Integer quantity = 0;
   private Float cost;
   
   public InventoryType(){
@@ -33,6 +34,15 @@ public class InventoryType {
   public void setDescription(String description) {
 	this.description = description;
   }
+  
+  public Integer getQuantity() {
+	return quantity;
+  }
+
+  public void setQuantity(Integer quantity) {
+	this.quantity = quantity;
+  }
+  
   public Float getCost() {
 	return cost;
   }
