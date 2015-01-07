@@ -9,17 +9,17 @@ import com.inna.sinai.web.view.controller.SinaiController;
 import com.inna.sinai.web.vo.Session;
 
 @Controller
-@RequestMapping("validation/revision")
-public class ContractRevisionController extends SinaiController {
+@RequestMapping("validation/remittence")
+public class RemittenceController extends SinaiController {
 	
   @RequestMapping("/setup.do")
   public String  setup(ModelMap model, @ModelAttribute Session session){
-	return "validation/revision/main";
+	return "validation/remittence/main";
   }
   
-  @RequestMapping("/search.do")
-  public String  search(ModelMap model, @ModelAttribute Session session){
-	return "validation/revision/_contracts";
+  @RequestMapping("/setupNew.do")
+  public String  setupNew(ModelMap model, @ModelAttribute Session session){
+	return "validation/remittence/newRemittence";
   }
-  
+
 }

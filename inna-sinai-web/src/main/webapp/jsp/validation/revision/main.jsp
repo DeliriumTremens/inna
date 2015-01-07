@@ -8,7 +8,7 @@
   <div id ="pageTitle" class="pageTitle">Validación</div>
   <div class="messageArea"></div>
   <div id="searchArea" class="searchArea">
-     <form:form id="searchForm" target="ajax:result" action="inventory/asignation/search.do" cssClass="validableForm">
+     <form:form id="searchForm" target="ajax:result" action="validation/revision/search.do" cssClass="validableForm">
          <table class="fullWidthTable">
                <tr>
                   <td align="left" class="label" width="60%" colspan="2">Nombre de Técnico</td>
@@ -30,6 +30,5 @@
       </form:form>
   </div>
   <div id="result" class="result">
-     <%@ include file="./_contracts.jsp"%>
   </div>
 </div>
