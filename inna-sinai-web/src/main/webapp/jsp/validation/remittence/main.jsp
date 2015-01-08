@@ -9,6 +9,9 @@
    function showNew(){
 	 loadContent("validation/remittence/setupNew.do");
    }
+   function showLoadResponse(){
+	  loadContent("validation/remittence/setupLoadResponse.do");
+   }
 </script>
 
 <div id="pageContent" class="pageContent">
@@ -206,7 +209,7 @@
   <div >
         <table class="fullWidthTable">
           <tr>
-             <td align="left"><button class="button styledButton" >Cargar respuesta</button></td>
+             <td align="left"><button class="button styledButton" onClick="showLoadResponse()">Cargar respuesta</button></td>
              <td align="right"><button class="button styledButton" onClick="showNew()">Nueva Remesa</button></td>
           </tr>
         </table>

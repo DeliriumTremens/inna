@@ -21,5 +21,15 @@ public class RemittenceController extends SinaiController {
   public String  setupNew(ModelMap model, @ModelAttribute Session session){
 	return "validation/remittence/newRemittence";
   }
+  
+  @RequestMapping("/setupLoadResponse.do")
+  public String setupLoadResponse(ModelMap model, @ModelAttribute Session session){
+	return "validation/remittence/loadResponse";
+  }
+  
+  @RequestMapping("/loadResponse.do")
+  public String loadResponse(ModelMap model, @ModelAttribute Session session){
+	return "validation/remittence/_response";
+  }
 
 }

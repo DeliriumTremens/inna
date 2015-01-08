@@ -1,11 +1,6 @@
 <%@ include file="/jsp/layout/container/_pageHeaders.jsp"%>
 
-
-<div id="pageContent" class="pageContent">
-  <div id ="pageTitle" class="pageTitle">Generar Remesa</div>
-  <div class="messageArea"></div>
-  <div id="searchArea" class="searchArea">
-  <table class="styledTable" title="CONTRATOS"> 
+  <table class="styledTable" title="ACEPTADOS"> 
   <thead> 
     <tr> 
       <th width="10%">CONTRATO</th>
@@ -101,59 +96,64 @@
 </table>
 <div id="pager"></div>
 
-<br>
-
-<table class="styledTable" title="REAGENDADOS"> 
+<br>  
+  <table class="styledTable" title="RECHAZADOS"> 
   <thead> 
     <tr> 
       <th width="10%">CONTRATO</th>
-      <th width="15%">FECHA INSTALACIÓN</th>
-	  <th width="20%">TECNICO</th> 
-	  <th width="10%">NO. EQUIPOS</th>
-	  <th width="15%">CAUSA</th>
-	  <th width="30%">COMENTARIOS</th>  
+      <th width="15%">CUENTA</th>  
+      <th width="60%">MOTIVO</th>
+        <th width="15%">ESTATUS</th>
    </tr> 
   </thead> 
   <tbody> 
 	  <tr>
-		<td>25055963</td>
-		 <td>01/12/2014</td>
-		 <td>Juan Armando Mendoza</td>
-		 <td>1</td>
-		 <td>PAGARE MAL REQUISITADO</td>
-		 <td>TECNICO ACUDE A DOMICILIO PARA GENRAR NUEVAMENTE EL PAGARE.</td>
+		<td>25055802</td>
+		<td>501132436673</td>
+		<td>COMPROBANTE DE DOMICILIO NO ACTUALIZADO O VIGENTE</td>
+		<td>RECHAZADO</td> 
 	  </tr>
 	  <tr>
-		<td>22587456</td>
-		 <td>08/12/2014</td>
-		 <td>Ignacio Peña de la Fuente</td>
-		 <td>2</td>
-		 <td>COMPROBANTE DE DOMICILIO NO VÁLIDO</td>
-		 <td>SE CONTACTA AL CLIENTE PARA SOLICITAR UN NUEVO COMPROBANTE DE DOMICILIO. LO ENVÍA VIA CORREO ELECTRONICO</td>
+		<td>25055803</td>
+		<td>501132436674</td>
+		 <td>SIN IDENTIFICACIÓN</td>
+		 <td>RECHAZADO</td> 
 	  </tr>
 	  <tr>
-		<td>98547526</td>
-		 <td>06/12/2014</td>
-		 <td>Juan Armando Mendoza</td>
-		 <td>1</td>
-		 <td>CONTRATO(S) SIN FIRMA DEL SUSCRIPTOR</td>
-		 <td>TECNICO ACUDE A DOMICILIO PARA RECABAR LA FIRMA.</td>
+		<td>25055804</td>
+		<td>501132436676</td>
+		 <td>SIN CARTA RESPONSIVA (DOMICILIOS CONOCIDOS)</td>
+		 <td>RECHAZADO</td> 
 	  </tr>
-	  
+	  <tr>
+		<td>25055810</td>
+		<td>501132436685</td>
+		<td>COMPROBANTE DE DOMICILIO NO ACTUALIZADO O VIGENTE</td>
+		<td>REAGENDADO</td> 
+	  </tr>
+	  <tr>
+		<td>25055815</td>
+		<td>501132436679</td>
+		 <td>SIN IDENTIFICACIÓN</td>
+		 <td>REAGENDADO</td> 
+	  </tr>
+	  <tr>
+		<td>25055878</td>
+		<td>501132436671</td>
+		 <td>SIN CARTA RESPONSIVA (DOMICILIOS CONOCIDOS)</td>
+		 <td>REAGENDADO</td> 
+	  </tr>
   </tbody> 
 </table>
-  </div>
+<div id="pager"></div>
+
+<br>
+
   
-  <div >
+<div >
         <table class="fullWidthTable">
           <tr>
-             <td align="right">
-             <form method="get" action="rsc/remittence.xls">
-                <button type="submit" class="button styledButton">Generar Remesa</button>
-             </form>
-             
-             </td>
+             <td align="right"><button class="button styledButton">Aceptar</button></td>
           </tr>
         </table>
   </div>
-</div>
