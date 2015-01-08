@@ -55,6 +55,20 @@ var chart = new google.visualization.ColumnChart(document.getElementById('instal
 
 chart.draw(data);
 
+
+var data = google.visualization.arrayToDataTable([
+                                                  ['Rubro', 'Contratos'],
+                                                  ['Contratos',     11],
+                                                  ['Ceros',      2]
+                                                ]);
+
+
+
+var chart = new google.visualization.PieChart(document.getElementById('zeros'));
+
+
+chart.draw(data);
+
 $(document).ready(function() {
 	$( "#chartTabs" ).tabs();
 	});
@@ -72,12 +86,18 @@ $(document).ready(function() {
 		<li>
 			<a href="#chart2">Tecnico Instalador</a>
 		</li>
+		<li>
+			<a href="#chart3">Ceros</a>
+		</li>
 	</ul>
 	<div id="chart1">
 		<div id="zones" style="width: 95%; height: 350px;"></div>
 	</div>
 	<div id="chart2">
 		<div id="installers" style="width: 95%; height: 350px;"></div>
+	</div>
+	<div id="chart3">
+		<div id="zeros" style="width: 95%; height: 350px;"></div>
 	</div>
 </div>
 
