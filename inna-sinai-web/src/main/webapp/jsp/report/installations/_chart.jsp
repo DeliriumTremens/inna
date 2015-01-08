@@ -69,6 +69,21 @@ var chart = new google.visualization.PieChart(document.getElementById('zeros'));
 
 chart.draw(data);
 
+
+var data = google.visualization.arrayToDataTable([
+                                                  ['Rubro', 'Contratos'],
+                                                  ['Contratos',     11],
+                                                  ['Ilocalizables',      4],
+                                                  ['Penalizados',      1]
+                                                ]);
+
+
+
+var chart = new google.visualization.PieChart(document.getElementById('notFound'));
+
+
+chart.draw(data);
+
 $(document).ready(function() {
 	$( "#chartTabs" ).tabs();
 	});
@@ -89,6 +104,9 @@ $(document).ready(function() {
 		<li>
 			<a href="#chart3">Ceros</a>
 		</li>
+		<li>
+			<a href="#chart4">Ilocalizables</a>
+		</li>
 	</ul>
 	<div id="chart1">
 		<div id="zones" style="width: 95%; height: 350px;"></div>
@@ -98,6 +116,9 @@ $(document).ready(function() {
 	</div>
 	<div id="chart3">
 		<div id="zeros" style="width: 95%; height: 350px;"></div>
+	</div>
+	<div id="chart4">
+		<div id="notFound" style="width: 95%; height: 350px;"></div>
 	</div>
 </div>
 

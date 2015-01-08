@@ -37,7 +37,7 @@ $(document).ready(function() {
 <div id="chartTabs">
 	<ul>
 		<li>
-			<a href="#chart1">Entradas /Salidas</a>
+			<a href="#chart1">Rentabilidad</a>
 		</li>
 	</ul>
 	<div id="chart1">

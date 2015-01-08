@@ -24,6 +24,21 @@
 
   var chart = new google.visualization.ColumnChart(document.getElementById('zones'));
   chart.draw(data);
+  
+  
+  var data = google.visualization.arrayToDataTable([
+                                                    ['Rubro', 'Contratos'],
+                                                    ['Contratos',     1000],
+                                                    ['Supervisiones',      152]
+                                                  ]);
+
+
+
+  var chart = new google.visualization.PieChart(document.getElementById('contracts'));
+
+
+  chart.draw(data);
+  
  
 $(document).ready(function() {
 	$( "#chartTabs" ).tabs();
@@ -39,9 +54,15 @@ $(document).ready(function() {
 		<li>
 			<a href="#chart1">Zona de Trabajo</a>
 		</li>
+		<li>
+			<a href="#chart2">Contratos</a>
+		</li>
 	</ul>
 	<div id="chart1">
 		<div id="zones" style="width: 900px; height: 350px;"></div>
+	</div>
+	<div id="chart2">
+		<div id="contracts" style="width: 900px; height: 350px;"></div>
 	</div>
 </div>
 
