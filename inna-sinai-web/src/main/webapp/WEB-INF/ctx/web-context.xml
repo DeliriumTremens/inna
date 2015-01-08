@@ -65,6 +65,7 @@
    <bean id="rescheduleReportController" class="com.inna.sinai.web.view.controller.core.reports.RescheduleReportController" parent="sinaiController"/>
    <bean id="zeroReportController" class="com.inna.sinai.web.view.controller.core.reports.ZeroReportController" parent="sinaiController"/>
    <bean id="inventoryReportController" class="com.inna.sinai.web.view.controller.core.reports.InventoryReportController" parent="sinaiController"/>
+   <bean id="financesReportController" class="com.inna.sinai.web.view.controller.core.reports.FinanceReportController" parent="sinaiController"/>
    <bean id="contractController" class="com.inna.sinai.web.view.controller.core.operation.ContractController" parent="sinaiController"/>
    <bean id="serviceOrderController" class="com.inna.sinai.web.view.controller.core.operation.ServiceOrderController" parent="sinaiController"/>
    <bean id="supervisionController" class="com.inna.sinai.web.view.controller.core.operation.SupervisionController" parent="sinaiController"/>
