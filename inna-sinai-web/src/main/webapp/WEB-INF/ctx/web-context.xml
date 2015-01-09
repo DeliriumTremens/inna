@@ -74,5 +74,6 @@
    <bean class="com.inna.sinai.web.view.controller.core.validation.ContractRevisionController" parent="sinaiController"/>
    <bean class="com.inna.sinai.web.view.controller.core.validation.RemittenceController" parent="sinaiController"/>
    <bean class="com.inna.sinai.web.view.controller.core.finance.PayRollController" parent="sinaiController"/>
+   <bean class="com.inna.sinai.web.view.controller.core.finance.TicketController" parent="sinaiController"/>
 
 </beans>
