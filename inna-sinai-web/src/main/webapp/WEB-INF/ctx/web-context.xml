@@ -53,6 +53,7 @@
         <property name="service" ref="userService" />
    </bean>
    
+   <bean class="com.inna.sinai.web.view.controller.core.admin.ChangePasswordController" parent="sinaiController"/>
    <bean class="com.inna.sinai.web.view.controller.core.catalog.JobZoneController" parent="sinaiController"/>
    <bean class="com.inna.sinai.web.view.controller.core.catalog.JobSpecController" parent="sinaiController"/>
    <bean class="com.inna.sinai.web.view.controller.core.catalog.ProductController" parent="sinaiController"/>
